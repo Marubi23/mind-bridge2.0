@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    
+    <title>Resources | MindBridge Kenya</title>
+    <meta name="description" content="Free mental health resources including guides, worksheets, meditations, and crisis helplines for Kenyan youth and families.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- SOS Emergency Button -->
+    <button class="sos-button" id="sosButton">
+        <i class="fas fa-phone-alt"></i>
+        <span>Emergency Help</span>
+    </button>
+    
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+              <a href="index.html" class="logo">
+                <img src="assets/images/mind-bridge-logo.JPG" alt="MindBridge Kenya" class="logo-img">
+            
+           
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="programs.html" class="nav-link">Programs</a>
+                <a href="therapists.html" class="nav-link">Therapists</a>
+                <a href="resources.html" class="nav-link active">Resources</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="school-partnership.html" class="nav-link">Schools →</a>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <h1>Free <span class="gradient-text">Resources</span></h1>
+                <p>Tools, guides, and support for your mental wellness journey</p>
+                <div class="header-stats">
+                    <div class="stat"><span class="stat-number">50+</span><span class="stat-label">Free Resources</span></div>
+                    <div class="stat"><span class="stat-number">10K+</span><span class="stat-label">Downloads</span></div>
+                    <div class="stat"><span class="stat-number">24/7</span><span class="stat-label">Crisis Support</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="header-wave"></div>
+    </section>
+    
+    <!-- Resource Categories -->
+    <section class="resource-categories">
+        <div class="container">
+            <div class="categories-grid">
+                <button class="category-btn active" data-category="all">All Resources</button>
+                <button class="category-btn" data-category="guides">Guides & Worksheets</button>
+                <button class="category-btn" data-category="audio">Audio & Meditation</button>
+                <button class="category-btn" data-category="video">Video Library</button>
+                <button class="category-btn" data-category="crisis">Crisis Support</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Resources Grid -->
+    <section class="resources-full">
+        <div class="container">
+            <div class="resources-full-grid" id="resourcesGrid">
+                <!-- Guides Category -->
+                <div class="resource-full-card" data-category="guides">
+                    <div class="resource-full-icon"><i class="fas fa-file-pdf"></i></div>
+                    <h3>Anxiety Management Guide for Teens</h3>
+                    <p>Practical techniques to manage anxiety, including breathing exercises, grounding techniques, and thought reframing.</p>
+                    <div class="resource-meta">
+                        <span><i class="fas fa-file-alt"></i> 24 pages</span>
+                        <span><i class="fas fa-download"></i> PDF format</span>
+                    </div>
+                    <a href="#" class="btn btn-outline btn-small">Download Free <i class="fas fa-download"></i></a>
+                </div>
+                
+                <div class="resource-full-card" data-category="guides">
+                    <div class="resource-full-icon"><i class="fas fa-file-pdf"></i></div>
+                    <h3>Depression Self-Help Workbook</h3>
+                    <p>Evidence-based worksheets and exercises to help manage depressive symptoms and build healthy habits.</p>
+                    <div class="resource-meta">
+                        <span><i class="fas fa-file-alt"></i> 36 pages</span>
+                        <span><i class="fas fa-download"></i> PDF format</span>
+                    </div>
+                    <a href="#" class="btn btn-outline btn-small">Download Free <i class="fas fa-download"></i></a>
+                </div>
+                
+                <div class="resource-full-card" data-category="guides">
+                    <div class="resource-full-icon"><i class="fas fa-file-pdf"></i></div>
+                    <h3>Parent's Guide to Teen Mental Health</h3>
+                    <p>Recognizing warning signs, starting conversations, and finding support for your teenager.</p>
+                    <div class="resource-meta">
+                        <span><i class="fas fa-file-alt"></i> 18 pages</span>
+                        <span><i class="fas fa-download"></i> PDF format</span>
+                    </div>
+                    <a href="#" class="btn btn-outline btn-small">Download Free <i class="fas fa-download"></i></a>
+                </div>
+                
+                <div class="resource-full-card" data-category="guides">
+                    <div class="resource-full-icon"><i class="fas fa-file-pdf"></i></div>
+                    <h3>Self-Care Planner & Mood Tracker</h3>
+                    <p>Daily and weekly planner to track moods, habits, and self-care activities.</p>
+                    <div class="resource-meta">
+                        <span><i class="fas fa-file-alt"></i> 30 days</span>
+                        <span><i class="fas fa-print"></i> Printable</span>
+                    </div>
+                    <a href="#" class="btn btn-outline btn-small">Download Free <i class="fas fa-download"></i></a>
+                </div>
+                
+                <!-- Audio Category -->
+                <div class="resource-full-card" data-category="audio">
+                    <div class="resource-full-icon"><i class="fas fa-headphones"></i></div>
+                    <h3>5-Minute Breathing Meditation</h3>
+                    <p>Guided breathing exercise for immediate anxiety relief and calm.</p>
+                    <div class="resource-meta">
+                        <span><i class="fas fa-clock"></i> 5 minutes</span>
+                        <span><i class="fas fa-music"></i> MP3 audio</span>
+                    </div>
+                    <a href="#" class="btn btn-outline btn-small">Listen Now <i class="fas fa-play"></i></a>
+                </div>
+                
+                <div class="resource-full-card" data-category="audio">
+                    <div class="resource-full-icon"><i class="fas fa-headphones"></i></div>
+                    <h3>Body Scan for Sleep</h3>
+                    <p>Gentle guided meditation to help you relax and fall asleep peacefully.</p>
+                    <div class="resource-meta">
+                        <span><i class="fas fa-clock"></i> 15 minutes</span>
+                        <span><i class="fas fa-music"></i> MP3 audio</span>
+                    </div>
+                    <a href="#" class="btn btn-outline btn-small">Listen Now <i class="fas fa-play"></i></a>
+                </div>
+                
+                <div class="resource-full-card" data-category="audio">
+                    <div class="resource-full-icon"><i class="fas fa-headphones"></i></div>
+                    <h3>Morning Gratitude Practice</h3>
+                    <p>Start your day with positivity using this guided gratitude meditation.</p>
+                    <div class="resource-meta">
+                        <span><i class="fas fa-clock"></i> 8 minutes</span>
+                        <span><i class="fas fa-music"></i> MP3 audio</span>
+                    </div>
+                    <a href="#" class="btn btn-outline btn-small">Listen Now <i class="fas fa-play"></i></a>
+                </div>
+                
+                <!-- Video Category -->
+                <div class="resource-full-card" data-category="video">
+                    <div class="resource-full-icon"><i class="fas fa-video"></i></div>
+                    <h3>Understanding Anxiety (Video Series)</h3>
+                    <p>Educational videos explaining what anxiety is and how to manage it.</p>
+                    <div class="resource-meta">
+                        <span><i class="fas fa-play-circle"></i> 4 videos</span>
+                        <span><i class="fas fa-clock"></i> 5-10 min each</span>
+                    </div>
+                    <a href="#" class="btn btn-outline btn-small">Watch Now <i class="fas fa-play"></i></a>
+                </div>
+                
+                <div class="resource-full-card" data-category="video">
+                    <div class="resource-full-icon"><i class="fas fa-video"></i></div>
+                    <h3>Mindfulness for Beginners</h3>
+                    <p>Introduction to mindfulness practices with simple exercises you can do anywhere.</p>
+                    <div class="resource-meta">
+                        <span><i class="fas fa-play-circle"></i> 3 videos</span>
+                        <span><i class="fas fa-clock"></i> 8-12 min each</span>
+                    </div>
+                    <a href="#" class="btn btn-outline btn-small">Watch Now <i class="fas fa-play"></i></a>
+                </div>
+                
+                <!-- Crisis Category -->
+                <div class="resource-full-card crisis" data-category="crisis">
+                    <div class="resource-full-icon"><i class="fas fa-phone-alt"></i></div>
+                    <h3>24/7 Crisis Helplines - Kenya</h3>
+                    <p>Immediate support when you need it most. Free and confidential.</p>
+                    <div class="crisis-numbers">
+                        <div class="crisis-line"><strong>Kenya Red Cross:</strong> <a href="tel:+254119999999">1199</a></div>
+                        <div class="crisis-line"><strong>Befrienders Kenya:</strong> <a href="tel:+254722178177">+254 722 178 177</a></div>
+                        <div class="crisis-line"><strong>Child Helpline:</strong> <a href="tel:+254116">116</a></div>
+                        <div class="crisis-line"><strong>Gender-Based Violence Hotline:</strong> <a href="tel:+2541195">1195</a></div>
+                    </div>
+                    <a href="emergency.html" class="btn btn-primary btn-small">Get Help Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="resource-full-card" data-category="crisis">
+                    <div class="resource-full-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>Safety Plan Template</h3>
+                    <p>Create your personal safety plan for managing crisis situations.</p>
+                    <div class="resource-meta">
+                        <span><i class="fas fa-file-alt"></i> Fillable PDF</span>
+                        <span><i class="fas fa-shield-alt"></i> Confidential</span>
+                    </div>
+                    <a href="#" class="btn btn-outline btn-small">Download Template <i class="fas fa-download"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Article -->
+    <section class="featured-article">
+        <div class="container">
+            <div class="article-card">
+                <div class="article-image">
+                    <img src="assets/images/IMG_1365.JPG" alt="Mental health awareness">
+                </div>
+                <div class="article-content">
+                    <span class="article-tag">Featured Article</span>
+                    <h3>5 Signs Your Teen Might Need Mental Health Support</h3>
+                    <p>Learn to recognize early warning signs and how to start the conversation with your teenager about mental health.</p>
+                    <a href="#" class="btn-link">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Blog Preview -->
+    <section class="blog-preview">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">From Our Blog</span>
+                <h2 class="section-title">Latest <span class="gradient-text">Articles</span></h2>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image"><img src="assets/images/IMG_1367.JPG" alt="Blog post"></div>
+                    <div class="blog-content">
+                        <span class="blog-date">April 15, 2026</span>
+                        <h4>Managing Exam Stress: Tips for Students</h4>
+                        <p>Practical strategies to stay calm and focused during exam season.</p>
+                        <a href="#" class="btn-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image"><img src="assets/images/IMG_1368.JPG" alt="Blog post"></div>
+                    <div class="blog-content">
+                        <span class="blog-date">April 8, 2026</span>
+                        <h4>How to Support a Friend with Depression</h4>
+                        <p>What to say, what not to say, and how to be there for someone.</p>
+                        <a href="#" class="btn-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image"><img src="assets/images/IMG_1369.JPG" alt="Blog post"></div>
+                    <div class="blog-content">
+                        <span class="blog-date">April 1, 2026</span>
+                        <h4>The Power of Journaling for Mental Health</h4>
+                        <p>How expressive writing can reduce stress and improve emotional regulation.</p>
+                        <a href="#" class="btn-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-card">
+                <i class="fas fa-envelope-open-text newsletter-icon"></i>
+                <h3>Get Resources Delivered to Your Inbox</h3>
+                <p>Subscribe for weekly mental health tips, new resources, and updates.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe <i class="fas fa-paper-plane"></i></button>
+                </form>
+                <p class="newsletter-note">Free resources. No spam. Unsubscribe anytime.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">[Same footer as index.html]</footer>
+    
+    <!-- Emergency Modal -->
+    <div class="emergency-modal" id="emergencyModal">[Same emergency modal]</div>
+    
+    <script src="js/animations.js"></script>
+    <script src="js/emergency.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Category filtering
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const resourceCards = document.querySelectorAll('.resource-full-card');
+        
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const category = btn.dataset.category;
+                
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                resourceCards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeInUp 0.5s ease forwards';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

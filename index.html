@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    
+    <title>MindBridge Kenya | Mental Health & Youth Empowerment</title>
+    <meta name="description" content="Building emotional resilience, confidence, and well-being for Kenyan children, teenagers, and school communities.">
+    <meta name="keywords" content="Mental Health Kenya, Youth Empowerment, School Programs, Counseling, Therapy Nairobi">
+    <meta name="author" content="MindBridge Kenya">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mind-bridge.co.ke/">
+    <meta property="og:title" content="MindBridge Kenya | Mental Health & Youth Empowerment">
+    <meta property="og:description" content="Building emotional resilience for Kenyan youth. School programs, counseling, and community support.">
+    <meta property="og:image" content="assets/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-theme="light">
+    <!-- SOS Emergency Floating Button -->
+    <button class="sos-button" id="sosButton">
+        <i class="fas fa-phone-alt"></i>
+        <span>Emergency Help</span>
+    </button>
+    
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/mind-bridge-logo.JPG" alt="MindBridge Kenya" class="logo-img">
+            
+            </a>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="programs.html" class="nav-link">Programs</a>
+                <a href="therapists.html" class="nav-link">Therapists</a>
+                <a href="resources.html" class="nav-link">Resources</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="school-patnership.html" class="nav-link ">Schools →</a>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="pulse-dot"></span>
+                        Mental Health Support · Kenya
+                    </div>
+                    <h1 class="hero-title">
+                        Building Emotional <span class="gradient-text">Resilience</span>
+                        for Kenya's Youth
+                    </h1>
+                    <p class="hero-description">
+                        We help children, teenagers, and school communities develop confidence, 
+                        emotional intelligence, and lasting well-being through evidence-based programs.
+                    </p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number" data-target="15000">0</div>
+                            <div class="stat-label">Youth Reached</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number" data-target="85">0</div>
+                            <div class="stat-label">Partner Schools</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number" data-target="120">0</div>
+                            <div class="stat-label">Trained Counselors</div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-buttons">
+                        <a href="#programs" class="btn btn-primary">
+                            <i class="fas fa-heart"></i>
+                            Get Support
+                        </a>
+                        <a href="school-partnership.html" class="btn btn-outline">
+                            <i class="fas fa-school"></i>
+                            Partner With Us
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="image-frame">
+                        <img src="assets/images/AT THE 2ND TREE PLANTING AT ALLIANCE GIRLS SCHOOL ALONG SIDE WITH THE DEPUTY PRINCIPAL.jpeg" alt="Students in counseling session">
+                        <div class="floating-card card-1">
+                            <i class="fas fa-smile"></i>
+                            <span>95% feel better</span>
+                        </div>
+                        <div class="floating-card card-2">
+                            <i class="fas fa-chart-line"></i>
+                            <span>80% improved grades</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+    
+    <!-- Programs Section -->
+    <section id="programs" class="programs">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What We Offer</span>
+                <h2 class="section-title">Programs That Make a <span class="gradient-text">Difference</span></h2>
+                <p class="section-subtitle">Evidence-based interventions designed for Kenyan schools and communities</p>
+            </div>
+            
+            <div class="programs-grid">
+                <div class="program-card" data-program="school">
+                    <div class="program-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <h3>School-Based Programs</h3>
+                    <p>Resilience workshops, peer support groups, and mindfulness clubs embedded in the school day.</p>
+                    <ul class="program-features">
+                        <li><i class="fas fa-check"></i> Weekly group sessions</li>
+                        <li><i class="fas fa-check"></i> Teacher training included</li>
+                        <li><i class="fas fa-check"></i> Progress tracking</li>
+                    </ul>
+                    <a href="#" class="btn-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="program-card" data-program="counseling">
+                    <div class="program-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Counseling Services</h3>
+                    <p>Individual and group therapy sessions with licensed mental health professionals.</p>
+                    <ul class="program-features">
+                        <li><i class="fas fa-check"></i> Confidential sessions</li>
+                        <li><i class="fas fa-check"></i> In-person & online</li>
+                        <li><i class="fas fa-check"></i> Sliding scale fees</li>
+                    </ul>
+                    <a href="#" class="btn-link">Book a session <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="program-card" data-program="teacher">
+                    <div class="program-icon">
+                        <i class="fas fa-chalkboard-user"></i>
+                    </div>
+                    <h3>Teacher Training</h3>
+                    <p>Empowering educators with emotional first aid and mental health support skills.</p>
+                    <ul class="program-features">
+                        <li><i class="fas fa-check"></i> Certification program</li>
+                        <li><i class="fas fa-check"></i> Practical strategies</li>
+                        <li><i class="fas fa-check"></i> Ongoing support</li>
+                    </ul>
+                    <a href="#" class="btn-link">Train your staff <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="program-card" data-program="parent">
+                    <div class="program-icon">
+                        <i class="fas fa-family"></i>
+                    </div>
+                    <h3>Parent Workshops</h3>
+                    <p>Guidance on supporting teen mental health and building stronger family connections.</p>
+                    <ul class="program-features">
+                        <li><i class="fas fa-check"></i> Monthly workshops</li>
+                        <li><i class="fas fa-check"></i> Resource materials</li>
+                        <li><i class="fas fa-check"></i> Parent support groups</li>
+                    </ul>
+                    <a href="#" class="btn-link">Join a workshop <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Impact Section - Live Counter -->
+    <section class="impact">
+        <div class="container">
+            <div class="impact-grid">
+                <div class="impact-stats">
+                    <h2>Our Impact So Far</h2>
+                    <div class="live-counter">
+                        <div class="counter-item">
+                            <div class="counter-number" id="liveCounter">0</div>
+                            <div class="counter-label">Lives Touched</div>
+                        </div>
+                        <div class="counter-update">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>Updating live</span>
+                        </div>
+                    </div>
+                    <div class="impact-story">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"MindBridge changed how I see myself. I learned that it's okay to not be okay, and that asking for help is strength."</p>
+                        <div class="story-author">
+                            <strong>— Mary, 16</strong>
+                            <span>Student at Precious Blood</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="impact-map">
+                    <div class="map-placeholder">
+                        <img src="assets/images/map.JPG" alt="Kenya coverage map">
+                        <div class="map-marker marker-nairobi">
+                            <span>Nairobi</span>
+                            <div class="marker-pulse"></div>
+                        </div>
+                        <div class="map-marker marker-kisumu">
+                            <span>Kisumu</span>
+                            <div class="marker-pulse"></div>
+                        </div>
+                        <div class="map-marker marker-mombasa">
+                            <span>Mombasa</span>
+                            <div class="marker-pulse"></div>
+                        </div>
+                        <div class="map-marker marker-nakuru">
+                            <span>Nakuru</span>
+                            <div class="marker-pulse"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Therapist Spotlight -->
+    <section class="therapists-spotlight">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Meet Our Team</span>
+                <h2 class="section-title">Qualified <span class="gradient-text">Therapists</span> You Can Trust</h2>
+            </div>
+            
+            <div class="therapists-grid" id="therapistsGrid">
+                <!-- Dynamically loaded via JS -->
+            </div>
+            
+            <div class="text-center">
+                <a href="therapists.html" class="btn btn-outline">
+                    View All Therapists
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Wellness Quiz Preview -->
+    <section class="quiz-preview">
+        <div class="container">
+            <div class="quiz-card">
+                <div class="quiz-content">
+                    <span class="quiz-badge">Free & Anonymous</span>
+                    <h3>How Are You Feeling Today?</h3>
+                    <p>Take our 2-minute wellness check-in. Get personalized resources based on your responses.</p>
+                    <button class="btn btn-primary" id="startQuizBtn">
+                        <i class="fas fa-clipboard-list"></i>
+                        Start Wellness Check
+                    </button>
+                </div>
+                <div class="quiz-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Resources Preview -->
+    <section class="resources-preview">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Free Resources</span>
+                <h2 class="section-title">Tools for Your <span class="gradient-text">Wellness Journey</span></h2>
+            </div>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <i class="fas fa-download"></i>
+                    <h4>Anxiety Management Guide</h4>
+                    <p>Practical techniques for teens</p>
+                    <a href="#" class="download-link">Download PDF →</a>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-headphones"></i>
+                    <h4>Guided Meditations</h4>
+                    <p>5-10 minute mindfulness sessions</p>
+                    <a href="#" class="download-link">Listen now →</a>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h4>Self-Care Planner</h4>
+                    <p>Track your daily wellness</p>
+                    <a href="#" class="download-link">Download →</a>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h4>Crisis Helplines</h4>
+                    <p>24/7 emergency support</p>
+                    <a href="#" class="download-link">View numbers →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter Signup -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-card">
+                <h3>Stay Updated</h3>
+                <p>Get mental health tips, program updates, and community news.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn btn-primary">
+                        Subscribe <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+                <p class="newsletter-note">We respect your privacy. Unsubscribe anytime.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <span>Mind<span class="highlight">Bridge</span></span>
+                        <small>Kenya</small>
+                    </a>
+                    <p>Building emotional resilience for Kenya's youth through evidence-based mental health programs.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Programs</h4>
+                    <ul>
+                        <li><a href="#">School-Based</a></li>
+                        <li><a href="#">Counseling</a></li>
+                        <li><a href="#">Teacher Training</a></li>
+                        <li><a href="#">Parent Workshops</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Mental Health Guides</a></li>
+                        <li><a href="#">Crisis Helplines</a></li>
+                        <li><a href="#">Research & Reports</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Get Involved</h4>
+                    <ul>
+                        <li><a href="#">Partner With Us</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Donate</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> hello@mind-bridge.co.ke</li>
+                        <li><i class="fas fa-phone"></i> +254 700 123 456</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Upper Hill, Nairobi</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 MindBridge Kenya. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Emergency Modal -->
+    <div class="emergency-modal" id="emergencyModal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <i class="fas fa-phone-alt emergency-icon"></i>
+            <h3>Need Immediate Help?</h3>
+            <p>You're not alone. Reach out to these 24/7 helplines:</p>
+            <div class="helplines">
+                <div class="helpline">
+                    <strong>Kenya Red Cross</strong>
+                    <a href="tel:+254119999999">1199</a>
+                </div>
+                <div class="helpline">
+                    <strong>Befrienders Kenya</strong>
+                    <a href="tel:+254722178177">+254 722 178 177</a>
+                </div>
+                <div class="helpline">
+                    <strong>Child Helpline</strong>
+                    <a href="tel:+254116">116</a>
+                </div>
+            </div>
+            <button class="btn btn-primary close-modal">I Understand</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/animations.js"></script>
+    <script src="js/therapists.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/emergency.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Live counter simulation
+        let currentCount = 12500;
+        const liveCounter = document.getElementById('liveCounter');
+        
+        setInterval(() => {
+            currentCount += Math.floor(Math.random() * 3) + 1;
+            if (liveCounter) {
+                liveCounter.textContent = currentCount.toLocaleString();
+            }
+        }, 5000);
+    </script>
+</body>
+</html>
