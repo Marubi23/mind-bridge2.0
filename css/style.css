@@ -802,7 +802,7 @@ body {
 
 .partner-logo {
     text-align: center;
-    opacity: 0.6;
+   
     transition: opacity var(--transition-fast);
 }
 
@@ -812,6 +812,7 @@ body {
 
 .partner-logo img {
     max-width: 120px;
+    height: 80px;
     height: auto;
     margin: 0 auto;
 }
@@ -853,6 +854,7 @@ body {
     padding: var(--space-xl) 0;
     background: var(--white);
 }
+
 
 .section-header {
     text-align: center;
@@ -944,6 +946,9 @@ body {
 .program-features i {
     color: var(--secondary);
     font-size: 0.8rem;
+}
+.header-stats .stat-label{
+    color: white;
 }
 
 /* ===== IMPACT SECTION ===== */
