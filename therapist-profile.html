@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Therapist Profile | MindBridge Kenya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/therapist.css">
+    <link rel="stylesheet" href="css/booking.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+   <nav class="navbar" id="navbar">
+        <div class="container">
+             <a href="index.html" class="logo">
+                <img src="assets/images/mind-bridge-logo.JPG" alt="MindBridge Kenya" class="logo-img">
+            
+            </a>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="programs.html" class="nav-link active">Programs</a>
+                <a href="therapists.html" class="nav-link">Therapists</a>
+                <a href="resources.html" class="nav-link">Resources</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="school-patnership.html" class="nav-link">Schools →</a>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+    
+
+    <section class="therapist-profile" id="therapistProfile">
+        <div class="container">
+            <div id="profileContainer" class="profile-container"></div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div class="booking-modal" id="bookingModal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <h3>Book a Session</h3>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label>Select Date</label>
+                    <input type="date" id="bookingDate" required>
+                </div>
+                <div class="form-group">
+                    <label>Select Time</label>
+                    <select id="bookingTime" required>
+                        <option value="">Select a time</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Session Type</label>
+                    <select id="sessionType" required>
+                        <option value="in-person">In-person (Nairobi)</option>
+                        <option value="online">Online (Video Call)</option>
+                        <option value="phone">Phone Call</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Brief Description (Optional)</label>
+                    <textarea rows="3" placeholder="What would you like to discuss?"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+    
+
+    <script src="js/therapists-data.js"></script>
+    <script src="js/booking.js"></script>
+    <script src="js/therapist-profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,724 @@
+/* ============================================
+   THERAPIST PAGE STYLES
+   Matching Quiz, Profiles, Online Status
+   ============================================ */
+
+/* Matching CTA Section */
+.matching-cta {
+    padding: 3rem 0;
+    background: var(--light);
+}
+
+.matching-card {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-radius: 30px;
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.matching-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
+    border-radius: 50%;
+}
+
+.matching-content {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+}
+
+.matching-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.matching-icon i {
+    font-size: 2rem;
+}
+
+.matching-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.matching-content p {
+    opacity: 0.9;
+    margin-bottom: 1rem;
+}
+
+.matching-features {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.matching-features span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.matching-features i {
+    font-size: 1rem;
+}
+
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+}
+
+.matching-illustration {
+    font-size: 8rem;
+    opacity: 0.2;
+    position: relative;
+    z-index: 2;
+}
+
+/* Online Status Indicator */
+.online-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    background: rgba(0,0,0,0.05);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-dot.online {
+    background: #10b981;
+    box-shadow: 0 0 5px #10b981;
+    animation: pulse-green 1.5s infinite;
+}
+
+.status-dot.away {
+    background: #f59e0b;
+}
+
+.status-dot.offline {
+    background: #6b7280;
+}
+
+.status-dot.busy {
+    background: #ef4444;
+}
+
+@keyframes pulse-green {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+.last-online {
+    font-size: 0.65rem;
+    color: var(--gray);
+    margin-left: 0.5rem;
+}
+
+/* Quick Actions */
+.quick-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.quick-action-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--primary-bg);
+    border: none;
+    color: var(--primary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quick-action-btn:hover {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Therapist Card Enhancements */
+.therapist-card {
+    position: relative;
+}
+
+.therapist-online-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
+}
+
+.therapist-actions {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.therapist-card:hover .therapist-actions {
+    opacity: 1;
+}
+
+.action-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+}
+
+.action-icon:hover {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* ============================================
+   MATCHING QUIZ STYLES
+   ============================================ */
+
+.matching-quiz {
+    padding: 8rem 0 4rem;
+    min-height: 100vh;
+}
+
+.quiz-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.quiz-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 0.5rem;
+}
+
+.quiz-progress-container {
+    max-width: 400px;
+    margin: 2rem auto 0;
+}
+
+.quiz-progress-bar {
+    height: 6px;
+    background: var(--primary);
+    border-radius: 3px;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.quiz-step {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--gray);
+}
+
+.quiz-questions {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.quiz-question {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+    display: none;
+}
+
+.quiz-question.active {
+    display: block;
+    animation: fadeInUp 0.5s ease;
+}
+
+.question-text {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--dark);
+}
+
+.question-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.question-option {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 2px solid rgba(0,0,0,0.1);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.question-option:hover {
+    border-color: var(--primary);
+    background: var(--primary-bg);
+    transform: translateX(5px);
+}
+
+.question-option.selected {
+    border-color: var(--primary);
+    background: var(--primary-bg);
+}
+
+.question-option input {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary);
+}
+
+.option-label {
+    flex: 1;
+    font-weight: 500;
+}
+
+.quiz-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 2rem auto 0;
+}
+
+/* Matching Results */
+.matching-results {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.results-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.results-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.match-percentage {
+    font-size: 1.2rem;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.matched-therapists {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.match-card {
+    display: flex;
+    gap: 1.5rem;
+    background: var(--white);
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.match-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.match-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.match-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.match-info {
+    flex: 1;
+}
+
+.match-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.25rem;
+}
+
+.match-title {
+    color: var(--primary);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.match-score {
+    display: inline-block;
+    background: var(--primary-bg);
+    color: var(--primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.match-desc {
+    color: var(--gray);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.match-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+/* ============================================
+   THERAPIST PROFILE STYLES
+   ============================================ */
+
+.therapist-profile {
+    padding: 8rem 0 4rem;
+}
+
+.profile-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 3rem;
+}
+
+.profile-sidebar {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 100px;
+}
+
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1rem;
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-sidebar h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.profile-title {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.profile-rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.profile-contact {
+    margin: 1.5rem 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    color: var(--gray);
+    font-size: 0.875rem;
+}
+
+.contact-item i {
+    color: var(--primary);
+}
+
+.profile-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.profile-main {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+}
+
+.profile-section {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.profile-section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.profile-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.profile-section h3 i {
+    color: var(--primary);
+}
+
+.specialties-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.specialty-badge {
+    background: var(--primary-bg);
+    color: var(--primary);
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    font-size: 0.875rem;
+}
+
+.experience-item {
+    margin-bottom: 1rem;
+}
+
+.experience-item h4 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.experience-item p {
+    color: var(--gray);
+    font-size: 0.875rem;
+}
+
+.review-card {
+    padding: 1rem;
+    background: var(--light);
+    border-radius: 16px;
+    margin-bottom: 1rem;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.reviewer-name {
+    font-weight: 600;
+}
+
+.review-stars {
+    color: #fbbf24;
+    font-size: 0.875rem;
+}
+
+.review-text {
+    color: var(--gray);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.review-date {
+    font-size: 0.7rem;
+    color: var(--gray-light);
+}
+
+/* Availability Calendar */
+.availability-calendar {
+    margin-top: 1rem;
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.calendar-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.25rem;
+}
+
+.calendar-date {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-size: 0.875rem;
+}
+
+.calendar-date:hover {
+    background: var(--primary-bg);
+}
+
+.calendar-date.available {
+    background: var(--primary);
+    color: white;
+}
+
+.calendar-date.selected {
+    background: var(--secondary);
+    color: white;
+}
+
+.time-slots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.time-slot {
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 30px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.time-slot:hover,
+.time-slot.selected {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 968px) {
+    .profile-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-sidebar {
+        position: static;
+    }
+    
+    .matching-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .matching-features {
+        justify-content: center;
+    }
+    
+    .match-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .match-image {
+        margin: 0 auto;
+    }
+    
+    .match-actions {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .quiz-question {
+        padding: 1.5rem;
+    }
+    
+    .question-text {
+        font-size: 1.1rem;
+    }
+    
+    .profile-avatar {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .calendar-dates {
+        gap: 0.1rem;
+    }
+    
+    .calendar-date {
+        font-size: 0.75rem;
+    }
+}

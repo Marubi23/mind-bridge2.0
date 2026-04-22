@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Mental Health Checkup | MindBridge Kenya</title>
+    <meta name="description" content="Talk to our AI assistant about how you're feeling. Get matched with the right therapist.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/therapist-matching.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="assets/images/mind-bridge-logo.JPG" alt="MindBridge Kenya" class="logo-img"></a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="programs.html" class="nav-link">Programs</a>
+                <a href="therapists.html" class="nav-link">Therapists</a>
+                <a href="resources.html" class="nav-link">Resources</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="school-partnership.html" class="nav-link">Schools →</a>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="chat-container">
+        <div class="container">
+            <div class="chat-header">
+                <div class="chat-header-content">
+                    <span class="chat-badge"><i class="fas fa-shield-alt"></i> Safe & Confidential</span>
+                    <h1>This is a safe space. What would you like to <span class="gradient-text">share</span>?</h1>
+                    <p>Share what's on your mind. Our AI assistant will listen and help find the right support for you.</p>
+                </div>
+            </div>
+            <div class="chat-wrapper">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message bot-message">
+                        <div class="message-avatar"><i class="fas fa-robot"></i></div>
+                        <div class="message-bubble">
+                            <p>👋 Hi there. I'm here to listen, without judgment, and help you match with our qualified therapists.</p>
+                            <p>Could you tell me your name? (e.g., "My name is Peter")</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="suggested-prompts" id="suggestedPrompts">
+                    <button class="prompt-chip" data-prompt="I've been feeling anxious and can't sleep at night"><i class="fas fa-heart-broken"></i> "I've been feeling anxious"</button>
+                    <button class="prompt-chip" data-prompt="I feel sad and nothing seems to help anymore"><i class="fas fa-cloud-rain"></i> "I feel sad and hopeless"</button>
+                    <button class="prompt-chip" data-prompt="I'm stressed about school and exams, feeling overwhelmed"><i class="fas fa-graduation-cap"></i> "Stressed about school"</button>
+                    <button class="prompt-chip" data-prompt="I'm having trouble with my relationships and family"><i class="fas fa-users"></i> "Relationship problems"</button>
+                    <button class="prompt-chip" data-prompt="I don't feel like myself anymore, something feels off"><i class="fas fa-question-circle"></i> "Don't feel like myself"</button>
+                </div>
+                <div class="chat-input-area">
+                    <div class="input-wrapper">
+                        <textarea id="userInput" rows="2" placeholder="Type your message here... (e.g., 'My name is Peter')"></textarea>
+                        <button class="send-btn" id="sendBtn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                    <div class="input-footer">
+                        <span><i class="fas fa-lock"></i> Your privacy matters</span>
+                        <span><i class="fas fa-brain"></i> MindBridge AI Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="results-modal" id="resultsModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Your <span class="gradient-text">Matches</span></h2>
+                <button class="modal-close" id="closeModal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="restartChat"><i class="fas fa-redo-alt"></i> Start Over</button>
+                <a href="therapists.html" class="btn btn-primary"><i class="fas fa-search"></i> Browse All Therapists</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo"><span>Mind<span class="highlight">Bridge</span></span><small>Kenya</small></a>
+                    <p>Building emotional resilience for Kenya's youth through evidence-based mental health programs.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul><li><a href="about.html">About Us</a></li><li><a href="programs.html">Programs</a></li><li><a href="therapists.html">Therapists</a></li><li><a href="resources.html">Resources</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul><li><a href="#">Crisis Helplines</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Use</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul><li><i class="fas fa-envelope"></i> hello@mind-bridge.co.ke</li><li><i class="fas fa-phone"></i> +254 700 123 456</li><li><i class="fas fa-map-marker-alt"></i> Upper Hill, Nairobi</li></ul>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 MindBridge Kenya. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script src="js/therapist-matching.js"></script>
+</body>
+</html>

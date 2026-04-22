@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Message Your Therapist | MindBridge Kenya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/messaging.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="assets/images/mind-bridge-logo.JPG" alt="MindBridge Kenya" class="logo-img"></a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="programs.html" class="nav-link">Programs</a>
+                <a href="therapists.html" class="nav-link">Therapists</a>
+                <a href="resources.html" class="nav-link">Resources</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="school-partnership.html" class="nav-link">Schools →</a>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="messaging-container">
+        <div class="container">
+            <div class="messaging-wrapper">
+                <!-- Therapist Info Header -->
+                <div class="chat-header" id="chatHeader">
+                    <div class="therapist-info">
+                        <div class="therapist-avatar" id="therapistAvatar"></div>
+                        <div class="therapist-details">
+                            <h2 id="therapistName">Loading...</h2>
+                            <p class="therapist-status" id="therapistStatus"><i class="fas fa-circle"></i> Connecting</p>
+                        </div>
+                    </div>
+                    <a href="therapist-profile.html" class="view-profile-btn" id="viewProfileBtn">View Profile</a>
+                </div>
+
+                <!-- Chat Messages Area -->
+                <div class="chat-messages" id="chatMessages">
+                    <div class="welcome-message">
+                        <i class="fas fa-comments"></i>
+                        <p>Start a conversation with your therapist. They typically respond within 24 hours.</p>
+                    </div>
+                </div>
+
+                <!-- Message Input Area -->
+                <div class="message-input-area">
+                    <div class="input-wrapper">
+                        <textarea id="messageInput" rows="2" placeholder="Type your message..."></textarea>
+                        <button class="send-btn" id="sendBtn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div class="input-footer">
+                        <span><i class="fas fa-lock"></i> Encrypted messages</span>
+                        <span><i class="fas fa-clock"></i> Therapist will respond soon</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">...</footer>
+
+    <script src="js/therapists-data.js"></script>
+    <script src="js/messaging.js"></script>
+</body>
+</html>

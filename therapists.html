@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     
-    <title>Our Therapists | MindBridge Kenya</title>
-    <meta name="description" content="Meet our licensed therapists in Nairobi, Kisumu, and Mombasa. Find the right mental health professional for you.">
+    <title>Find Your Therapist | MindBridge Kenya</title>
+    <meta name="description" content="Take our matching quiz or browse our licensed therapists. Find the right mental health professional for your needs.">
     
-    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,33 +14,39 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/therapist.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-    <!-- Same navigation as index.html -->
-     <nav class="navbar" id="navbar">
+    <!-- Navigation -->
+   <nav class="navbar" id="navbar">
         <div class="container">
-              <a href="index.html" class="logo">
+            <a href="index.html" class="logo">
                 <img src="assets/images/mind-bridge-logo.JPG" alt="MindBridge Kenya" class="logo-img">
             
             </a>
             
             <div class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html" class="nav-link active">Home</a>
                 <a href="about.html" class="nav-link">About</a>
                 <a href="programs.html" class="nav-link">Programs</a>
                 <a href="therapists.html" class="nav-link">Therapists</a>
                 <a href="resources.html" class="nav-link">Resources</a>
-                <a href="contact.html" class="nav-link active">Contact</a>
-                <a href="school-patnership.html" class="nav-link">Schools →</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="school-patnership.html" class="nav-link ">Schools →</a>
             </div>
+            
             <div class="nav-actions">
-                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
-                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </nav>
+    
     
     <!-- Page Header -->
     <section class="page-header">
@@ -50,22 +55,40 @@
                 <h1>Find Your <span class="gradient-text">Therapist</span></h1>
                 <p>Licensed professionals who truly care about your well-being</p>
                 <div class="header-stats">
-                    <div class="stat">
-                        <span class="stat-number">24+</span>
-                        <span class="stat-label">Licensed Therapists</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">8+</span>
-                        <span class="stat-label">Years Avg Experience</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">4.9</span>
-                        <span class="stat-label"> Client Rating</span>
-                    </div>
+                    <div class="stat"><span class="stat-number">24+</span><span class="stat-label">Licensed Therapists</span></div>
+                    <div class="stat"><span class="stat-number">8+</span><span class="stat-label">Years Avg Experience</span></div>
+                    <div class="stat"><span class="stat-number">4.9</span><span class="stat-label"> Client Rating</span></div>
                 </div>
             </div>
         </div>
         <div class="header-wave"></div>
+    </section>
+    
+    <!-- Matching Quiz CTA - NEW -->
+    <section class="matching-cta">
+        <div class="container">
+            <div class="matching-card">
+                <div class="matching-content">
+                    <div class="matching-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>Not sure where to start?</h3>
+                    <p>Take our 2-minute matching quiz and we'll recommend the perfect therapist for you based on your needs, preferences, and concerns.</p>
+                    <div class="matching-features">
+                        <span><i class="fas fa-check-circle"></i> Free & anonymous</span>
+                        <span><i class="fas fa-robot"></i> Smart matching algorithm</span>
+                        <span><i class="fas fa-clock"></i> Takes 2 minutes</span>
+                    </div>
+                    <a href="therapist-matching.html" class="btn btn-primary btn-large">
+                        <i class="fas fa-heart"></i>
+                        Match Me With a Therapist
+                    </a>
+                </div>
+                <div class="matching-illustration">
+                    <i class="fas fa-puzzle-piece"></i>
+                </div>
+            </div>
+        </div>
     </section>
     
     <!-- Search & Filter Section -->
@@ -95,10 +118,11 @@
                         <option value="online">Online Only</option>
                     </select>
                     
-                    <select id="genderFilter" class="filter-select">
-                        <option value="all">Any Gender</option>
-                        <option value="female">Female</option>
-                        <option value="male">Male</option>
+                    <select id="availabilityFilter" class="filter-select">
+                        <option value="all">All Availability</option>
+                        <option value="online">Online Now</option>
+                        <option value="today">Available Today</option>
+                        <option value="week">This Week</option>
                     </select>
                     
                     <button class="btn btn-outline" id="resetFilters">
@@ -110,7 +134,7 @@
         </div>
     </section>
     
-    <!-- Therapists Grid -->
+    <!-- Therapists Grid with Online Status -->
     <section class="therapists-list">
         <div class="container">
             <div class="therapists-grid" id="therapistsList">
@@ -120,22 +144,8 @@
             <div class="no-results" id="noResults" style="display: none;">
                 <i class="fas fa-frown"></i>
                 <h3>No therapists found</h3>
-                <p>Try adjusting your filters or search term</p>
-                <button class="btn btn-primary" id="clearFiltersBtn">Clear All Filters</button>
-            </div>
-        </div>
-    </section>
-    
-    <!-- CTA Section -->
-    <section class="cta-simple">
-        <div class="container">
-            <div class="cta-box">
-                <h3>Not sure where to start?</h3>
-                <p>Our care coordinators can help match you with the right therapist for your needs.</p>
-                <a href="contact.html" class="btn btn-primary">
-                    <i class="fas fa-comments"></i>
-                    Talk to a Care Coordinator
-                </a>
+                <p>Try adjusting your filters or take our matching quiz</p>
+                <a href="therapist-matching.html" class="btn btn-primary">Take Matching Quiz</a>
             </div>
         </div>
     </section>
