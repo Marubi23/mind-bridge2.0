@@ -19,34 +19,26 @@
 </head>
 <body>
     <!-- Navigation -->
-   <nav class="navbar" id="navbar">
+    <nav class="navbar" id="navbar">
         <div class="container">
             <a href="index.html" class="logo">
                 <img src="assets/images/mind-bridge-logo.JPG" alt="MindBridge Kenya" class="logo-img">
-            
             </a>
-            
             <div class="nav-menu">
-                <a href="index.html" class="nav-link active">Home</a>
+                <a href="index.html" class="nav-link">Home</a>
                 <a href="about.html" class="nav-link">About</a>
                 <a href="programs.html" class="nav-link">Programs</a>
-                <a href="therapists.html" class="nav-link">Therapists</a>
+                <a href="therapists.html" class="nav-link active">Therapists</a>
                 <a href="resources.html" class="nav-link">Resources</a>
                 <a href="contact.html" class="nav-link">Contact</a>
-                <a href="school-patnership.html" class="nav-link ">Schools →</a>
+                <a href="school-partnership.html" class="nav-link">Schools →</a>
             </div>
-            
             <div class="nav-actions">
-                <button class="theme-toggle" id="themeToggle">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button class="menu-toggle" id="menuToggle">
-                    <i class="fas fa-bars"></i>
-                </button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
             </div>
         </div>
     </nav>
-    
     
     <!-- Page Header -->
     <section class="page-header">
@@ -57,14 +49,14 @@
                 <div class="header-stats">
                     <div class="stat"><span class="stat-number">24+</span><span class="stat-label">Licensed Therapists</span></div>
                     <div class="stat"><span class="stat-number">8+</span><span class="stat-label">Years Avg Experience</span></div>
-                    <div class="stat"><span class="stat-number">4.9</span><span class="stat-label"> Client Rating</span></div>
+                    <div class="stat"><span class="stat-number">4.9</span><span class="stat-label">Client Rating</span></div>
                 </div>
             </div>
         </div>
         <div class="header-wave"></div>
     </section>
     
-    <!-- Matching Quiz CTA - NEW -->
+    <!-- Matching Quiz CTA - ENHANCED -->
     <section class="matching-cta">
         <div class="container">
             <div class="matching-card">
@@ -72,12 +64,13 @@
                     <div class="matching-icon">
                         <i class="fas fa-magic"></i>
                     </div>
-                    <h3>Not sure where to start?</h3>
-                    <p>Take our 2-minute matching quiz and we'll recommend the perfect therapist for you based on your needs, preferences, and concerns.</p>
+                    <h3>Not sure where to start? <span class="highlight">We've got you.</span></h3>
+                    <p>Answer a few quick questions about what you're going through, and our smart algorithm will recommend the perfect therapist for you.</p>
                     <div class="matching-features">
                         <span><i class="fas fa-check-circle"></i> Free & anonymous</span>
-                        <span><i class="fas fa-robot"></i> Smart matching algorithm</span>
+                        <span><i class="fas fa-robot"></i> AI‑powered matching</span>
                         <span><i class="fas fa-clock"></i> Takes 2 minutes</span>
+                        <span><i class="fas fa-heart"></i> 94% match accuracy</span>
                     </div>
                     <a href="therapist-matching.html" class="btn btn-primary btn-large">
                         <i class="fas fa-heart"></i>
@@ -99,7 +92,6 @@
                     <i class="fas fa-search"></i>
                     <input type="text" id="therapistSearch" placeholder="Search by name, specialty, or location...">
                 </div>
-                
                 <div class="filters">
                     <select id="specialtyFilter" class="filter-select">
                         <option value="all">All Specialties</option>
@@ -109,7 +101,6 @@
                         <option value="family">Family Therapy</option>
                         <option value="career">Career Counseling</option>
                     </select>
-                    
                     <select id="locationFilter" class="filter-select">
                         <option value="all">All Locations</option>
                         <option value="nairobi">Nairobi</option>
@@ -117,30 +108,24 @@
                         <option value="mombasa">Mombasa</option>
                         <option value="online">Online Only</option>
                     </select>
-                    
                     <select id="availabilityFilter" class="filter-select">
                         <option value="all">All Availability</option>
                         <option value="online">Online Now</option>
                         <option value="today">Available Today</option>
                         <option value="week">This Week</option>
                     </select>
-                    
                     <button class="btn btn-outline" id="resetFilters">
-                        <i class="fas fa-undo-alt"></i>
-                        Reset
+                        <i class="fas fa-undo-alt"></i> Reset
                     </button>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Therapists Grid with Online Status -->
+    <!-- Therapists Grid -->
     <section class="therapists-list">
         <div class="container">
-            <div class="therapists-grid" id="therapistsList">
-                <!-- Dynamic content loaded via JS -->
-            </div>
-            
+            <div class="therapists-grid" id="therapistsList"></div>
             <div class="no-results" id="noResults" style="display: none;">
                 <i class="fas fa-frown"></i>
                 <h3>No therapists found</h3>
@@ -150,10 +135,9 @@
         </div>
     </section>
     
-    <!-- Footer -->
     <footer class="footer">...</footer>
     
-    <script src="js/main.js"></script>
+    <script src="js/therapists-data.js"></script>
     <script src="js/therapists.js"></script>
 </body>
 </html>

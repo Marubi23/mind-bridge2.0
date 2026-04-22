@@ -1,141 +1,101 @@
 /**
- * Therapist Directory with Online Status
- * Real-time availability tracking
+ * Therapists Directory – Render, filter, and action buttons
  */
 
-// Therapist data with online status
-const therapists = [
-    {
-        id: 1,
-        name: "Dr. Sarah Wanjiku",
-        title: "Clinical Psychologist",
-        specialty: "anxiety",
-        specialties: ["Anxiety & Depression", "Trauma & PTSD"],
-        location: "nairobi",
-        gender: "female",
-        experience: 12,
-        rating: 4.9,
-        reviewCount: 128,
-        bio: "Dr. Sarah specializes in helping teens and young adults navigate anxiety, depression, and life transitions.",
-        image: "assets/images/therapists/sarah.jpg",
-        languages: ["English", "Swahili"],
-        availability: "In-person & Online",
-        sessionFee: "KES 3,500 - 5,000",
-        onlineStatus: "online",
-        lastOnline: null,
-        ageGroups: ["teen", "young", "adult"],
-        education: "PhD in Clinical Psychology - UoN"
-    },
-    // ... more therapists with onlineStatus: "online", "away", "offline", "busy"
-];
+// Therapist database is loaded from therapists-data.js
 
-// Simulate real-time status updates
-function updateOnlineStatus() {
-    setInterval(() => {
-        therapists.forEach(therapist => {
-            // Random status change for demo
-            const statuses = ["online", "away", "offline", "busy"];
-            if (Math.random() > 0.7) {
-                therapist.onlineStatus = statuses[Math.floor(Math.random() * statuses.length)];
-                therapist.lastOnline = new Date().toLocaleTimeString();
-            }
-        });
-        
-        // Re-render if on therapists page
-        if (document.getElementById('therapistsList')) {
-            filterTherapists();
-        }
-    }, 30000); // Update every 30 seconds
-}
+// DOM Elements
+const therapistsGrid = document.getElementById('therapistsList');
+const searchInput = document.getElementById('therapistSearch');
+const specialtyFilter = document.getElementById('specialtyFilter');
+const locationFilter = document.getElementById('locationFilter');
+const availabilityFilter = document.getElementById('availabilityFilter');
+const resetBtn = document.getElementById('resetFilters');
+const noResults = document.getElementById('noResults');
 
+// Render therapists
 function renderTherapists(therapistsToShow) {
-    const container = document.getElementById('therapistsList');
-    const noResults = document.getElementById('noResults');
-    
-    if (!container) return;
+    if (!therapistsGrid) return;
     
     if (therapistsToShow.length === 0) {
-        container.innerHTML = '';
+        therapistsGrid.innerHTML = '';
         noResults.style.display = 'block';
         return;
     }
     
     noResults.style.display = 'none';
     
-    container.innerHTML = therapistsToShow.map(t => `
-        <div class="therapist-card" data-id="${t.id}">
+    therapistsGrid.innerHTML = therapistsToShow.map(therapist => `
+        <div class="therapist-card" data-id="${therapist.id}">
             <div class="therapist-online-badge">
                 <div class="online-status">
-                    <span class="status-dot ${t.onlineStatus}"></span>
-                    <span>${t.onlineStatus === 'online' ? 'Online Now' : t.onlineStatus === 'away' ? 'Away' : t.onlineStatus === 'busy' ? 'In Session' : 'Offline'}</span>
-                    ${t.lastOnline ? `<span class="last-online">Last seen ${t.lastOnline}</span>` : ''}
+                    <span class="status-dot ${therapist.onlineStatus}"></span>
+                    <span>${therapist.onlineStatus === 'online' ? 'Online Now' : therapist.onlineStatus === 'away' ? 'Away' : therapist.onlineStatus === 'busy' ? 'In Session' : 'Offline'}</span>
                 </div>
             </div>
             <div class="therapist-image">
-                <img src="${t.image}" alt="${t.name}">
-                <div class="therapist-badge">${t.experience}+ years</div>
+                <img src="${therapist.image}" alt="${therapist.name}">
+                <div class="therapist-badge">${therapist.experience}+ years</div>
             </div>
             <div class="therapist-info">
-                <h3>${t.name}</h3>
-                <p class="therapist-title">${t.title}</p>
+                <h3>${therapist.name}</h3>
+                <p class="therapist-title">${therapist.title}</p>
                 <div class="therapist-rating">
-                    <span class="stars">${'★'.repeat(Math.floor(t.rating))}${'☆'.repeat(5-Math.floor(t.rating))}</span>
-                    <span class="rating-number">${t.rating}</span>
-                    <span class="review-count">(${t.reviewCount} reviews)</span>
+                    <span class="stars">${'★'.repeat(Math.floor(therapist.rating))}${'☆'.repeat(5 - Math.floor(therapist.rating))}</span>
+                    <span class="rating-number">${therapist.rating}</span>
+                    <span class="review-count">(${therapist.reviewCount} reviews)</span>
                 </div>
-                <p class="therapist-bio">${t.bio.substring(0, 100)}...</p>
+                <p class="therapist-bio">${therapist.bio.substring(0, 100)}...</p>
                 <div class="therapist-specialties">
-                    ${t.specialties.map(s => `<span class="specialty-tag">${s}</span>`).join('')}
+                    ${therapist.specialties.slice(0, 3).map(s => `<span class="specialty-tag">${s}</span>`).join('')}
                 </div>
                 <div class="therapist-details">
-                    <span><i class="fas fa-map-marker-alt"></i> ${t.location === 'online' ? 'Online' : t.location.charAt(0).toUpperCase() + t.location.slice(1)}</span>
-                    <span><i class="fas fa-language"></i> ${t.languages.join(', ')}</span>
-                    <span><i class="fas fa-video"></i> ${t.availability}</span>
+                    <span><i class="fas fa-map-marker-alt"></i> ${therapist.location === 'online' ? 'Online' : therapist.location.charAt(0).toUpperCase() + therapist.location.slice(1)}</span>
+                    <span><i class="fas fa-language"></i> ${therapist.languages[0]}</span>
                 </div>
-                <div class="therapist-footer">
-                    <div class="session-fee">${t.sessionFee}</div>
-                    <div class="quick-actions">
-                        <button class="quick-action-btn" onclick="quickMessage(${t.id})" title="Send Message">
-                            <i class="fas fa-comment"></i>
-                        </button>
-                        <button class="quick-action-btn" onclick="quickBook(${t.id})" title="Book Session">
-                            <i class="fas fa-calendar-check"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="therapist-actions">
-                <div class="action-icon" onclick="viewProfile(${t.id})" title="View Profile">
-                    <i class="fas fa-eye"></i>
-                </div>
-                <div class="action-icon" onclick="quickMessage(${t.id})" title="Send Message">
-                    <i class="fas fa-comment"></i>
-                </div>
-                <div class="action-icon" onclick="quickBook(${t.id})" title="Book Session">
-                    <i class="fas fa-calendar-plus"></i>
+                <!-- LARGE ACTION BUTTONS -->
+                <div class="therapist-actions-large">
+                    <button class="action-btn video-btn" onclick="startVideoCall(${therapist.id})" title="Video Call">
+                        <i class="fas fa-video"></i>
+                        <span>Video Call</span>
+                    </button>
+                    <button class="action-btn message-btn" onclick="openMessaging(${therapist.id})" title="Send Message">
+                        <i class="fas fa-comment-dots"></i>
+                        <span>Message</span>
+                    </button>
+                    <button class="action-btn book-btn" onclick="bookTherapist(${therapist.id})" title="Book Session">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Book</span>
+                    </button>
                 </div>
             </div>
         </div>
     `).join('');
 }
 
-function viewProfile(id) {
-    window.location.href = `therapist-profile.html?id=${id}`;
+// Action functions
+function startVideoCall(therapistId) {
+    const therapist = window.therapists?.find(t => t.id === therapistId);
+    if (therapist) {
+        alert(`🔗 Video call link would be sent to ${therapist.name}. (Feature coming soon)`);
+        // In production: window.location.href = `video-call.html?therapist=${therapistId}`;
+    }
 }
 
-function quickMessage(id) {
-    window.location.href = `messaging.html?therapist=${id}`;
+function openMessaging(therapistId) {
+    window.location.href = `messaging.html?therapist=${therapistId}`;
 }
 
-function quickBook(id) {
-    window.location.href = `booking.html?therapist=${id}`;
+function bookTherapist(therapistId) {
+    window.location.href = `therapist-profile.html?id=${therapistId}`;
 }
 
+// Filter therapists
 function filterTherapists() {
-    const searchTerm = document.getElementById('therapistSearch')?.value.toLowerCase() || '';
-    const specialty = document.getElementById('specialtyFilter')?.value || 'all';
-    const location = document.getElementById('locationFilter')?.value || 'all';
-    const availability = document.getElementById('availabilityFilter')?.value || 'all';
+    const searchTerm = searchInput?.value.toLowerCase() || '';
+    const specialty = specialtyFilter?.value || 'all';
+    const location = locationFilter?.value || 'all';
+    const availability = availabilityFilter?.value || 'all';
     
     const filtered = therapists.filter(t => {
         const matchesSearch = searchTerm === '' || 
@@ -149,9 +109,7 @@ function filterTherapists() {
         const matchesLocation = location === 'all' || t.location === location;
         
         const matchesAvailability = availability === 'all' || 
-            (availability === 'online' && t.onlineStatus === 'online') ||
-            (availability === 'today' && t.onlineStatus === 'online') ||
-            (availability === 'week');
+            (availability === 'online' && t.onlineStatus === 'online');
         
         return matchesSearch && matchesSpecialty && matchesLocation && matchesAvailability;
     });
@@ -159,23 +117,22 @@ function filterTherapists() {
     renderTherapists(filtered);
 }
 
-// Initialize
+// Event listeners
 document.addEventListener('DOMContentLoaded', () => {
-    if (document.getElementById('therapistsList')) {
+    if (therapists && therapists.length) {
         renderTherapists(therapists);
-        updateOnlineStatus();
-        
-        document.getElementById('therapistSearch')?.addEventListener('input', filterTherapists);
-        document.getElementById('specialtyFilter')?.addEventListener('change', filterTherapists);
-        document.getElementById('locationFilter')?.addEventListener('change', filterTherapists);
-        document.getElementById('availabilityFilter')?.addEventListener('change', filterTherapists);
-        
-        document.getElementById('resetFilters')?.addEventListener('click', () => {
-            document.getElementById('therapistSearch').value = '';
-            document.getElementById('specialtyFilter').value = 'all';
-            document.getElementById('locationFilter').value = 'all';
-            document.getElementById('availabilityFilter').value = 'all';
-            filterTherapists();
-        });
     }
+    
+    searchInput?.addEventListener('input', filterTherapists);
+    specialtyFilter?.addEventListener('change', filterTherapists);
+    locationFilter?.addEventListener('change', filterTherapists);
+    availabilityFilter?.addEventListener('change', filterTherapists);
+    
+    resetBtn?.addEventListener('click', () => {
+        if (searchInput) searchInput.value = '';
+        if (specialtyFilter) specialtyFilter.value = 'all';
+        if (locationFilter) locationFilter.value = 'all';
+        if (availabilityFilter) availabilityFilter.value = 'all';
+        filterTherapists();
+    });
 });
