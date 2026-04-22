@@ -1,0 +1,404 @@
+/* ============================================
+   EMERGENCY PAGE STYLES
+   Crisis Support & Helplines
+   ============================================ */
+
+/* Emergency Header */
+.emergency-header {
+    padding: 8rem 0 3rem;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+    text-align: center;
+}
+
+.emergency-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(220, 38, 38, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.emergency-icon i {
+    font-size: 2.5rem;
+    color: #ef4444;
+    animation: pulse-red 1.5s infinite;
+}
+
+.emergency-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+}
+
+.emergency-header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+.emergency-warning {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 16px;
+    padding: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.emergency-warning i {
+    font-size: 1.2rem;
+    color: #ef4444;
+}
+
+.emergency-warning strong {
+    color: #ef4444;
+}
+
+/* Helplines Section */
+.helplines-section {
+    padding: 4rem 0;
+    background: var(--light);
+}
+
+.helplines-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--gray);
+    margin-bottom: 3rem;
+}
+
+.helplines-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.helpline-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.helpline-card.emergency {
+    border-left: 4px solid #ef4444;
+}
+
+.helpline-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.helpline-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.helpline-icon i {
+    font-size: 1.3rem;
+    color: var(--primary);
+}
+
+.helpline-info {
+    flex: 1;
+}
+
+.helpline-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.helpline-info p {
+    font-size: 0.8rem;
+    color: var(--gray);
+    margin-bottom: 0.5rem;
+}
+
+.helpline-number {
+    display: inline-block;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+    margin-bottom: 0.25rem;
+}
+
+.helpline-number:hover {
+    text-decoration: underline;
+}
+
+.availability {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--gray);
+}
+
+/* What to Do Section */
+.what-to-do {
+    padding: 5rem 0;
+}
+
+.what-to-do h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+}
+
+.step-card {
+    text-align: center;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.step-number {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.step-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem auto;
+}
+
+.step-icon i {
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.step-card h3 {
+    margin-bottom: 0.5rem;
+}
+
+.step-card p {
+    color: var(--gray);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+/* Coping Strategies */
+.coping-strategies {
+    padding: 4rem 0;
+    background: var(--light);
+}
+
+.coping-card {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow-md);
+}
+
+.coping-card h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.coping-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.coping-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--light);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.coping-item:hover {
+    transform: translateY(-3px);
+}
+
+.coping-item i {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+}
+
+.coping-item h4 {
+    margin-bottom: 0.5rem;
+}
+
+.coping-item p {
+    color: var(--gray);
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+/* Warning Signs */
+.warning-signs {
+    padding: 5rem 0;
+}
+
+.warning-signs h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+.signs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.sign-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.sign-card i {
+    font-size: 1.2rem;
+    color: #ef4444;
+}
+
+.sign-card p {
+    color: var(--dark);
+    font-size: 0.9rem;
+}
+
+.warning-note {
+    background: #fef2f2;
+    border-left: 4px solid #ef4444;
+    padding: 1rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.warning-note i {
+    font-size: 1.2rem;
+    color: #ef4444;
+}
+
+.warning-note p {
+    color: var(--dark);
+    font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes pulse-red {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .emergency-header {
+        padding: 6rem 0 2rem;
+    }
+    
+    .helplines-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .coping-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .signs-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .warning-note {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .helpline-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .helpline-icon {
+        margin: 0 auto;
+    }
+    
+    .step-card {
+        padding: 1.5rem;
+    }
+    
+    .coping-card {
+        padding: 1.5rem;
+    }
+}
