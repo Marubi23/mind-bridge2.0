@@ -357,3 +357,54 @@ window.addEventListener('scroll', () => {
     
     lastScrollPosition = currentScrollPosition;
 });
+// User Menu Dropdown
+const userAvatarBtn = document.getElementById('userAvatarBtn');
+const userDropdown = document.getElementById('userDropdown');
+
+if (userAvatarBtn && userDropdown) {
+    userAvatarBtn.addEventListener('click', () => {
+        userDropdown.classList.toggle('show');
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!userAvatarBtn.contains(e.target) && userDropdown.classList.contains('show')) {
+            userDropdown.classList.remove('show');
+        }
+    });
+}
+
+// Check if user is logged in (example)
+function checkAuthStatus() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const authButtons = document.getElementById('authButtons');
+    const userMenu = document.getElementById('userMenu');
+    
+    if (isLoggedIn) {
+        if (authButtons) authButtons.style.display = 'none';
+        if (userMenu) userMenu.style.display = 'block';
+        
+        // Set user name
+        const userName = localStorage.getItem('userName') || 'John Doe';
+        const userNameDisplay = document.getElementById('userNameDisplay');
+        if (userNameDisplay) userNameDisplay.textContent = userName;
+    } else {
+        if (authButtons) authButtons.style.display = 'flex';
+        if (userMenu) userMenu.style.display = 'none';
+    }
+}
+
+// Call this on page load
+checkAuthStatus();
+
+// Logout functionality
+const logoutBtn = document.getElementById('logoutBtn');
+if (logoutBtn) {
+    logoutBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('userName');
+        checkAuthStatus();
+        window.location.href = 'index.html';
+    });
+}

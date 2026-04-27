@@ -32,35 +32,51 @@
     </button>
     
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <img src="assets/images/mind-bridge-logo.JPG" alt="MindBridge Kenya" class="logo-img">
-            </a>
-            
-            <div class="nav-menu">
-                <a href="index.html" class="nav-link active">Home</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="programs.html" class="nav-link">Programs</a>
-                <a href="therapists.html" class="nav-link">Therapists</a>
-                <a href="resources.html" class="nav-link">Resources</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-                <a href="school-partnership.html" class="nav-link">Schools →</a>
-                <a href="signup.html" class="nav-link">Sign Up</a>
-                <a href="login.html" class="nav-link">Login</a>
-            </div>
-            
-            <div class="nav-actions">
-                <button class="theme-toggle" id="themeToggle">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button class="menu-toggle" id="menuToggle">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+    <div class="container">
+        <a href="index.html" class="logo">
+            <img src="assets/images/mind-bridge-logo.JPG" alt="MindBridge Kenya">
+            <span class="logo-text">Mind<span>Bridge</span></span>
+        </a>
+        
+        <div class="nav-menu" id="navMenu">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="programs.html" class="nav-link">Programs</a>
+            <a href="therapists.html" class="nav-link">Therapists</a>
+            <a href="resources.html" class="nav-link">Resources</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="school-partnership.html" class="nav-link school-link">Schools →</a>
         </div>
-    </nav>
-    
+        
+        <div class="nav-actions">
+            <div class="auth-buttons" id="authButtons">
+                <a href="login.html" class="btn-login">Sign In</a>
+                <a href="signup.html" class="btn-signup">Get Started</a>
+            </div>
+            <div class="user-menu" id="userMenu" style="display: none;">
+                <button class="user-avatar" id="userAvatarBtn">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+                <div class="user-dropdown" id="userDropdown">
+                    <div class="dropdown-header" id="userNameDisplay"></div>
+                    <a href="#" id="dashboardLink"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    <a href="#" id="profileLink"><i class="fas fa-user"></i> Profile</a>
+                    <a href="#" id="bookingsLink"><i class="fas fa-calendar"></i> My Bookings</a>
+                    <hr>
+                    <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</nav>
     <!-- Hero Section - Modern Background Blend -->
     <section class="hero">
         <div class="hero-background">
