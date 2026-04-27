@@ -219,3 +219,141 @@ document.addEventListener('DOMContentLoaded', () => {
     
     console.log('MindBridge Kenya initialized successfully');
 });
+// ===== Hero Particle System =====
+class HeroParticles {
+    constructor() {
+        this.container = document.getElementById('heroParticles');
+        if (!this.container) return;
+        this.particleCount = 50;
+        this.init();
+    }
+    
+    init() {
+        for (let i = 0; i < this.particleCount; i++) {
+            this.createParticle();
+        }
+    }
+    
+    createParticle() {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        const size = Math.random() * 6 + 2;
+        const left = Math.random() * 100;
+        const duration = Math.random() * 15 + 10;
+        const delay = Math.random() * 10;
+        
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${left}%`;
+        particle.style.animationDuration = `${duration}s`;
+        particle.style.animationDelay = `${delay}s`;
+        
+        this.container.appendChild(particle);
+        
+        // Remove and recreate for infinite effect
+        particle.addEventListener('animationend', () => {
+            particle.remove();
+            this.createParticle();
+        });
+    }
+}
+
+// ===== Scroll Reveal Observer =====
+class ScrollReveal {
+    constructor() {
+        this.elements = document.querySelectorAll('[data-aos]');
+        this.init();
+    }
+    
+    init() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('aos-animate');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        
+        this.elements.forEach(el => observer.observe(el));
+    }
+}
+
+// ===== Smooth Scroll with Offset =====
+class SmoothScroll {
+    constructor() {
+        this.init();
+    }
+    
+    init() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 80;
+                    const targetPosition = target.offsetTop - navbarHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
+}
+
+// ===== Hero Parallax Effect =====
+class HeroParallax {
+    constructor() {
+        this.hero = document.querySelector('.hero');
+        if (!this.hero) return;
+        this.bgImage = document.querySelector('.hero-bg-image img');
+        this.init();
+    }
+    
+    init() {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            if (this.bgImage && scrolled < window.innerHeight) {
+                const rate = scrolled * 0.3;
+                this.bgImage.style.transform = `translateY(${rate}px) scale(1.05)`;
+            }
+        });
+    }
+}
+
+// ===== Initialize All Hero Features =====
+document.addEventListener('DOMContentLoaded', () => {
+    new HeroParticles();
+    new ScrollReveal();
+    new SmoothScroll();
+    new HeroParallax();
+});
+// ===== Navbar Hide on Scroll =====
+let lastScrollPosition = 0;
+const navbar = document.getElementById('navbar');
+
+window.addEventListener('scroll', () => {
+    const currentScrollPosition = window.pageYOffset;
+    
+    // Add scrolled class for shadow
+    if (currentScrollPosition > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+    
+    // Hide navbar on scroll down, show on scroll up
+    if (currentScrollPosition > lastScrollPosition && currentScrollPosition > 100) {
+        // Scrolling down - hide navbar
+        navbar.classList.add('hide');
+    } else if (currentScrollPosition < lastScrollPosition) {
+        // Scrolling up - show navbar
+        navbar.classList.remove('hide');
+    }
+    
+    lastScrollPosition = currentScrollPosition;
+});

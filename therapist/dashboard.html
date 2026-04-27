@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Therapist Dashboard | MindBridge Kenya</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/therapist-dashboard.css">
+</head>
+<body>
+
+<div class="dashboard-app">
+    <!-- ==================== SIDEBAR ==================== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <img src="../assets/images/mind-bridge-logo.JPG" alt="MindBridge">
+                <span>Therapist<span>Portal</span></span>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+        
+        <div class="sidebar-user">
+            <div class="user-avatar">
+                <i class="fas fa-user-md"></i>
+            </div>
+            <div class="user-info">
+                <h4 id="therapistName">Loading...</h4>
+                <p>Licensed Therapist</p>
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-tab="overview">
+                <i class="fas fa-chart-line"></i>
+                <span>Overview</span>
+            </a>
+            <a href="#" class="nav-item" data-tab="appointments">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Appointments</span>
+                <span class="nav-badge" id="appointmentBadge">0</span>
+            </a>
+            <a href="#" class="nav-item" data-tab="messages">
+                <i class="fas fa-envelope"></i>
+                <span>Messages</span>
+                <span class="nav-badge" id="messageBadge">0</span>
+            </a>
+            <a href="#" class="nav-item" data-tab="clients">
+                <i class="fas fa-users"></i>
+                <span>My Clients</span>
+            </a>
+            <a href="#" class="nav-item" data-tab="schedule">
+                <i class="fas fa-clock"></i>
+                <span>Schedule</span>
+            </a>
+            <a href="#" class="nav-item" data-tab="earnings">
+                <i class="fas fa-chart-simple"></i>
+                <span>Earnings</span>
+            </a>
+            <a href="#" class="nav-item" data-tab="profile">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="online-status-indicator">
+                <span class="status-dot online"></span>
+                <span>Available for sessions</span>
+                <button class="toggle-status" id="toggleStatusBtn">
+                    <i class="fas fa-toggle-on"></i>
+                </button>
+            </div>
+            <a href="#" id="logoutBtnTherapist" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-left">
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="welcome-message">
+                    <h1>Welcome back, <span id="welcomeName"></span>! 👋</h1>
+                    <p id="todayDate"></p>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="quick-actions">
+                    <button class="quick-action" id="startBreakBtn">
+                        <i class="fas fa-coffee"></i>
+                    </button>
+                    <button class="notifications-btn" id="notificationsBtn">
+                        <i class="fas fa-bell"></i>
+                    </button>
+                </div>
+                <div class="user-menu">
+                    <button class="user-menu-btn" id="userMenuBtn">
+                        <i class="fas fa-user-circle"></i>
+                        <span id="userNameShort"></span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="#" data-tab="profile"><i class="fas fa-user"></i> My Profile</a>
+                        <a href="#" data-tab="schedule"><i class="fas fa-calendar"></i> My Schedule</a>
+                        <a href="#" data-tab="earnings"><i class="fas fa-chart-simple"></i> Earnings</a>
+                        <hr>
+                        <a href="#" id="logoutDropdown"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ==================== TAB: OVERVIEW ==================== -->
+        <div class="tab-content active" id="overviewTab">
+            <!-- Stats Cards -->
+            <div class="stats-grid" data-aos="fade-up">
+                <div class="stat-card">
+                    <div class="stat-icon blue">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="todayAppointments">0</h3>
+                        <p>Today's Appointments</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon green">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="unreadMessages">0</h3>
+                        <p>Unread Messages</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon purple">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalClients">0</h3>
+                        <p>Total Clients</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon orange">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="monthlyEarnings">KSh 0</h3>
+                        <p>This Month</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Today's Schedule -->
+            <div class="today-schedule" data-aos="fade-up" data-aos-delay="100">
+                <div class="section-header">
+                    <h3><i class="fas fa-calendar-day"></i> Today's Schedule</h3>
+                    <a href="#" class="view-all" data-tab="appointments">View All →</a>
+                </div>
+                <div class="schedule-list" id="todayScheduleList">
+                    <div class="loading-spinner">Loading today's schedule...</div>
+                </div>
+            </div>
+
+            <!-- Recent Messages -->
+            <div class="recent-messages" data-aos="fade-up" data-aos-delay="200">
+                <div class="section-header">
+                    <h3><i class="fas fa-comment-dots"></i> Recent Messages</h3>
+                    <a href="#" class="view-all" data-tab="messages">View All →</a>
+                </div>
+                <div class="messages-list" id="recentMessagesList">
+                    <div class="loading-spinner">Loading messages...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== TAB: APPOINTMENTS ==================== -->
+        <div class="tab-content" id="appointmentsTab">
+            <div class="appointments-header">
+                <h2>My Appointments</h2>
+                <div class="appointment-filters">
+                    <select id="appointmentFilter">
+                        <option value="upcoming">Upcoming</option>
+                        <option value="today">Today</option>
+                        <option value="past">Past</option>
+                        <option value="all">All</option>
+                    </select>
+                    <button class="btn-primary" id="syncCalendarBtn">
+                        <i class="fas fa-sync-alt"></i> Sync Calendar
+                    </button>
+                </div>
+            </div>
+            
+            <div class="appointments-grid" id="appointmentsList">
+                <div class="loading-spinner">Loading appointments...</div>
+            </div>
+        </div>
+
+        <!-- ==================== TAB: MESSAGES ==================== -->
+        <div class="tab-content" id="messagesTab">
+            <div class="messages-header">
+                <h2>Client Messages</h2>
+                <div class="message-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="messageSearch" placeholder="Search conversations...">
+                </div>
+            </div>
+            
+            <div class="messages-layout">
+                <div class="conversations-list" id="conversationsList">
+                    <div class="loading-spinner">Loading conversations...</div>
+                </div>
+                <div class="chat-area" id="chatArea" style="display: none;">
+                    <div class="chat-header" id="chatHeader"></div>
+                    <div class="chat-messages" id="chatMessages"></div>
+                    <div class="chat-input-area">
+                        <textarea id="chatInput" placeholder="Type your message..." rows="2"></textarea>
+                        <button class="send-btn" id="sendMessageBtn">
+                            <i class="fas fa-paper-plane"></i> Send
+                        </button>
+                    </div>
+                </div>
+                <div class="no-chat-selected" id="noChatSelected">
+                    <i class="fas fa-comments"></i>
+                    <p>Select a conversation to start messaging</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== TAB: MY CLIENTS ==================== -->
+        <div class="tab-content" id="clientsTab">
+            <div class="clients-header">
+                <h2>My Clients</h2>
+                <div class="client-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="clientSearch" placeholder="Search clients...">
+                </div>
+            </div>
+            
+            <div class="clients-grid" id="clientsList">
+                <div class="loading-spinner">Loading clients...</div>
+            </div>
+        </div>
+
+        <!-- ==================== TAB: SCHEDULE ==================== -->
+        <div class="tab-content" id="scheduleTab">
+            <div class="schedule-header">
+                <h2>My Availability</h2>
+                <button class="btn-primary" id="addAvailabilityBtn">
+                    <i class="fas fa-plus"></i> Add Time Slot
+                </button>
+            </div>
+            
+            <div class="availability-calendar">
+                <div class="calendar-nav">
+                    <button id="prevWeekBtn"><i class="fas fa-chevron-left"></i></button>
+                    <h3 id="weekRange"></h3>
+                    <button id="nextWeekBtn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="calendar-grid" id="availabilityGrid">
+                    <div class="loading-spinner">Loading schedule...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== TAB: EARNINGS ==================== -->
+        <div class="tab-content" id="earningsTab">
+            <div class="earnings-header">
+                <h2>Earnings Overview</h2>
+                <select id="earningsPeriod">
+                    <option value="month">This Month</option>
+                    <option value="quarter">This Quarter</option>
+                    <option value="year">This Year</option>
+                </select>
+            </div>
+            
+            <div class="earnings-stats">
+                <div class="earning-card">
+                    <h3>Total Earnings</h3>
+                    <div class="amount" id="totalEarnings">KSh 0</div>
+                </div>
+                <div class="earning-card">
+                    <h3>Pending Payout</h3>
+                    <div class="amount" id="pendingEarnings">KSh 0</div>
+                </div>
+                <div class="earning-card">
+                    <h3>Completed Sessions</h3>
+                    <div class="amount" id="completedSessions">0</div>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <canvas id="earningsChart"></canvas>
+            </div>
+            
+            <div class="transactions-list" id="transactionsList">
+                <div class="loading-spinner">Loading transactions...</div>
+            </div>
+        </div>
+
+        <!-- ==================== TAB: PROFILE ==================== -->
+        <div class="tab-content" id="profileTab">
+            <div class="profile-container">
+                <div class="profile-sidebar">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3 id="profileName">Loading...</h3>
+                    <p id="profileSpecialization">Licensed Therapist</p>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <span class="value" id="profileSessions">0</span>
+                            <span class="label">Sessions</span>
+                        </div>
+                        <div class="stat">
+                            <span class="value" id="profileRating">0</span>
+                            <span class="label">Rating</span>
+                        </div>
+                        <div class="stat">
+                            <span class="value" id="profileClients">0</span>
+                            <span class="label">Clients</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-form">
+                    <form id="therapistProfileForm">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="fullName" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="email" class="form-input" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Specialization</label>
+                            <input type="text" id="specialization" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>License Number</label>
+                            <input type="text" id="licenseNumber" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Hourly Rate (KES)</label>
+                            <input type="number" id="hourlyRate" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Bio</label>
+                            <textarea id="bio" rows="4" class="form-input"></textarea>
+                        </div>
+                        <button type="submit" class="btn-save">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/therapist-dashboard.js"></script>
+</body>
+</html>

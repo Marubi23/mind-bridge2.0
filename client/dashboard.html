@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard | MindBridge Kenya</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/client-dashboard.css">
+</head>
+<body>
+
+<div class="dashboard-app">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <img src="../assets/images/mind-bridge-logo.JPG" alt="MindBridge">
+                <span>My<span>Space</span></span>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-chevron-left"></i></button>
+        </div>
+        
+        <div class="sidebar-user">
+            <div class="user-avatar"><i class="fas fa-user-circle"></i></div>
+            <div class="user-info">
+                <h4 id="clientName">Loading...</h4>
+                <p>Member since <span id="memberSince"></span></p>
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-tab="overview"><i class="fas fa-home"></i><span>Dashboard</span></a>
+            <a href="#" class="nav-item" data-tab="therapists"><i class="fas fa-user-md"></i><span>My Therapists</span></a>
+            <a href="#" class="nav-item" data-tab="appointments"><i class="fas fa-calendar-alt"></i><span>Appointments</span><span class="nav-badge" id="appointmentBadge">0</span></a>
+            <a href="#" class="nav-item" data-tab="messages"><i class="fas fa-envelope"></i><span>Messages</span><span class="nav-badge" id="messageBadge">0</span></a>
+            <a href="#" class="nav-item" data-tab="payments"><i class="fas fa-credit-card"></i><span>Payments</span></a>
+            <a href="#" class="nav-item" data-tab="profile"><i class="fas fa-user"></i><span>Profile</span></a>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <a href="#" id="logoutBtnClient" class="logout-btn"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="dashboard-header">
+            <div class="header-left">
+                <button class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button>
+                <div class="welcome-message">
+                    <h1>Hello, <span id="welcomeName"></span>! 👋</h1>
+                    <p>Your mental wellness journey continues here</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="notifications-btn" id="notificationsBtn"><i class="fas fa-bell"></i></button>
+                <a href="../therapists.html" class="btn-find-therapist"><i class="fas fa-search"></i> Find Therapist</a>
+            </div>
+        </header>
+
+        <!-- Overview Tab -->
+        <div class="tab-content active" id="overviewTab">
+            <div class="stats-grid" data-aos="fade-up">
+                <div class="stat-card"><div class="stat-icon purple"><i class="fas fa-calendar-check"></i></div><div class="stat-info"><h3 id="upcomingCount">0</h3><p>Upcoming Sessions</p></div></div>
+                <div class="stat-card"><div class="stat-icon blue"><i class="fas fa-user-md"></i></div><div class="stat-info"><h3 id="therapistCount">0</h3><p>Therapists</p></div></div>
+                <div class="stat-card"><div class="stat-icon green"><i class="fas fa-envelope"></i></div><div class="stat-info"><h3 id="unreadCount">0</h3><p>Unread Messages</p></div></div>
+                <div class="stat-card"><div class="stat-icon orange"><i class="fas fa-clock"></i></div><div class="stat-info"><h3 id="completedCount">0</h3><p>Sessions Completed</p></div></div>
+            </div>
+
+            <!-- Upcoming Sessions -->
+            <div class="upcoming-sessions" data-aos="fade-up" data-aos-delay="100">
+                <div class="section-header"><h3><i class="fas fa-calendar-week"></i> Upcoming Sessions</h3><a href="#" class="view-all" data-tab="appointments">View All →</a></div>
+                <div id="upcomingSessionsList" class="sessions-list"><div class="loading-spinner">Loading...</div></div>
+            </div>
+
+            <!-- Recommended Therapists -->
+            <div class="recommended-therapists" data-aos="fade-up" data-aos-delay="200">
+                <div class="section-header"><h3><i class="fas fa-star"></i> Recommended for You</h3><a href="../therapists.html" class="view-all">Browse All →</a></div>
+                <div id="recommendedTherapists" class="therapists-scroll"><div class="loading-spinner">Loading recommendations...</div></div>
+            </div>
+        </div>
+
+        <!-- Therapists Tab -->
+        <div class="tab-content" id="therapistsTab"><div id="myTherapistsList" class="therapists-grid"><div class="loading-spinner">Loading your therapists...</div></div></div>
+
+        <!-- Appointments Tab -->
+        <div class="tab-content" id="appointmentsTab">
+            <div class="appointments-header"><h2>My Appointments</h2><select id="appointmentFilter"><option value="upcoming">Upcoming</option><option value="past">Past</option><option value="all">All</option></select></div>
+            <div id="allAppointmentsList" class="appointments-list"><div class="loading-spinner">Loading appointments...</div></div>
+        </div>
+
+        <!-- Messages Tab -->
+        <div class="tab-content" id="messagesTab">
+            <div class="messages-header"><h2>Messages</h2><div class="message-search"><i class="fas fa-search"></i><input type="text" id="messageSearch" placeholder="Search conversations..."></div></div>
+            <div class="messages-layout"><div class="conversations-list" id="conversationsList"><div class="loading-spinner">Loading conversations...</div></div><div class="chat-area" id="chatArea" style="display: none;"><div class="chat-header" id="chatHeader"></div><div class="chat-messages" id="chatMessages"></div><div class="chat-input-area"><textarea id="chatInput" placeholder="Type your message..." rows="2"></textarea><button class="send-btn" id="sendMessageBtn"><i class="fas fa-paper-plane"></i> Send</button></div></div><div class="no-chat-selected" id="noChatSelected"><i class="fas fa-comments"></i><p>Select a conversation to start messaging</p></div></div>
+        </div>
+
+        <!-- Profile Tab -->
+        <div class="tab-content" id="profileTab">
+            <div class="profile-container"><div class="profile-sidebar"><div class="profile-avatar"><i class="fas fa-user-circle"></i></div><h3 id="profileName"></h3><p id="profileEmail"></p><div class="profile-stats"><div class="stat"><span class="value" id="profileSessions">0</span><span class="label">Sessions</span></div><div class="stat"><span class="value" id="profileTherapists">0</span><span class="label">Therapists</span></div></div></div><div class="profile-form"><form id="clientProfileForm"><div class="form-group"><label>Full Name</label><input type="text" id="fullName" class="form-input"></div><div class="form-group"><label>Email</label><input type="email" id="email" class="form-input" readonly></div><div class="form-group"><label>Phone Number</label><input type="tel" id="phone" class="form-input"></div><div class="form-group"><label>Emergency Contact</label><input type="text" id="emergencyContact" class="form-input" placeholder="Name and phone number"></div><button type="submit" class="btn-save">Save Changes</button></form></div></div>
+        </div>
+    </main>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/client-dashboard.js"></script>
+</body>
+</html>

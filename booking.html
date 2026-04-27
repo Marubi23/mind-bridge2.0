@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Session | MindBridge Kenya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .booking-container {
+            max-width: 600px;
+            margin: 100px auto 50px;
+            padding: 2rem;
+        }
+        
+        .booking-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+        
+        .therapist-preview {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f5f7fb;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+        }
+        
+        .therapist-preview img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+        }
+        
+        .btn-book {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #1e3a5f, #0f2b44);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .price-display {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1e3a5f;
+            margin: 1rem 0;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="booking-container">
+        <div class="booking-card">
+            <h1>Book a Session</h1>
+            <div id="therapistPreview" class="therapist-preview"></div>
+            
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="bookingDate">Select Date</label>
+                    <input type="date" id="bookingDate" required min="">
+                </div>
+                
+                <div class="form-group">
+                    <label for="bookingTime">Select Time</label>
+                    <select id="bookingTime" required>
+                        <option value="">Select time</option>
+                        <option value="09:00:00">09:00 AM</option>
+                        <option value="10:00:00">10:00 AM</option>
+                        <option value="11:00:00">11:00 AM</option>
+                        <option value="14:00:00">02:00 PM</option>
+                        <option value="15:00:00">03:00 PM</option>
+                        <option value="16:00:00">04:00 PM</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="sessionType">Session Type</label>
+                    <select id="sessionType">
+                        <option value="video">Video Call</option>
+                        <option value="chat">Chat Session</option>
+                        <option value="phone">Phone Call</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="notes">Notes (Optional)</label>
+                    <textarea id="notes" rows="3" placeholder="Anything you'd like the therapist to know before the session..."></textarea>
+                </div>
+                
+                <div class="price-display" id="priceDisplay"></div>
+                
+                <button type="submit" class="btn-book">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="js/api.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const therapistId = urlParams.get('therapist');
+        let therapist = null;
+        let currentUser = null;
+        
+        // Set min date to tomorrow
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        document.getElementById('bookingDate').min = tomorrow.toISOString().split('T')[0];
+        
+        async function loadTherapist() {
+            try {
+                const response = await fetch(`${API_URL}/therapists/${therapistId}`);
+                therapist = await response.json();
+                
+                document.getElementById('therapistPreview').innerHTML = `
+                    <img src="../assets/images/default-therapist.jpg" alt="${therapist.full_name}">
+                    <div>
+                        <h3>${therapist.full_name}</h3>
+                        <p>${therapist.specialization || 'Licensed Therapist'}</p>
+                        <p><strong>KSh ${therapist.hourly_rate}/hour</strong></p>
+                    </div>
+                `;
+                document.getElementById('priceDisplay').innerHTML = `Total: KSh ${therapist.hourly_rate}`;
+                
+            } catch (error) {
+                console.error('Error loading therapist:', error);
+            }
+        }
+        
+        document.getElementById('bookingForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            currentUser = getCurrentUser();
+            if (!currentUser) {
+                alert('Please login to book a session');
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            const bookingData = {
+                client_id: currentUser.id,
+                therapist_id: parseInt(therapistId),
+                booking_date: document.getElementById('bookingDate').value,
+                booking_time: document.getElementById('bookingTime').value,
+                session_type: document.getElementById('sessionType').value,
+                notes: document.getElementById('notes').value
+            };
+            
+            try {
+                const response = await fetch(`${API_URL}/bookings`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    },
+                    body: JSON.stringify(bookingData)
+                });
+                
+                if (response.ok) {
+                    alert('Booking confirmed! Check your dashboard for details.');
+                    window.location.href = 'client/dashboard.html';
+                } else {
+                    const error = await response.json();
+                    alert('Booking failed: ' + error.error);
+                }
+            } catch (error) {
+                console.error('Error creating booking:', error);
+                alert('Network error. Please try again.');
+            }
+        });
+        
+        loadTherapist();
+    </script>
+</body>
+</html>

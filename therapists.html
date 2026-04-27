@@ -5,139 +5,366 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     
     <title>Find Your Therapist | MindBridge Kenya</title>
-    <meta name="description" content="Take our matching quiz or browse our licensed therapists. Find the right mental health professional for your needs.">
+    <meta name="description" content="Connect with licensed therapists in Kenya. Browse our curated list of mental health professionals and find your perfect match.">
     
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/therapist.css">
-    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <img src="assets/images/mind-bridge-logo.JPG" alt="MindBridge Kenya" class="logo-img">
-            </a>
-            <div class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="programs.html" class="nav-link">Programs</a>
-                <a href="therapists.html" class="nav-link active">Therapists</a>
-                <a href="resources.html" class="nav-link">Resources</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-                <a href="school-partnership.html" class="nav-link">Schools →</a>
+
+<!-- ==================== NAVIGATION ==================== -->
+<nav class="navbar" id="navbar">
+    <div class="container">
+        <a href="index.html" class="logo">
+            <img src="assets/images/mind-bridge-logo.JPG" alt="MindBridge Kenya">
+            <span class="logo-text">Mind<span>Bridge</span></span>
+        </a>
+        
+        <div class="nav-menu" id="navMenu">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="programs.html" class="nav-link">Programs</a>
+            <a href="therapists.html" class="nav-link active">Therapists</a>
+            <a href="resources.html" class="nav-link">Resources</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="school-partnership.html" class="nav-link school-link">Schools →</a>
+        </div>
+        
+        <div class="nav-actions">
+            <div class="auth-buttons" id="authButtons">
+                <a href="login.html" class="btn-login">Sign In</a>
+                <a href="signup.html" class="btn-signup">Get Started</a>
             </div>
-            <div class="nav-actions">
-                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
-                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+            <div class="user-menu" id="userMenu" style="display: none;">
+                <button class="user-avatar" id="userAvatarBtn">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+                <div class="user-dropdown" id="userDropdown">
+                    <div class="dropdown-header" id="userNameDisplay"></div>
+                    <a href="#" id="dashboardLink"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    <a href="#" id="profileLink"><i class="fas fa-user"></i> Profile</a>
+                    <a href="#" id="bookingsLink"><i class="fas fa-calendar"></i> My Bookings</a>
+                    <hr>
+                    <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- ==================== HERO SECTION ==================== -->
+<section class="hero-therapists">
+    <div class="hero-bg-pattern"></div>
+    <div class="container">
+        <div class="hero-content" data-aos="fade-up">
+            <div class="hero-badge">
+                <i class="fas fa-hand-holding-heart"></i> 
+                <span>Professional & Licensed</span>
+            </div>
+            <h1>Find Your <span class="gradient-text">Perfect Match</span></h1>
+            <p>Connect with licensed therapists who understand you. Browse, filter, and book your first session today.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" id="totalTherapistsStat">24+</span>
+                    <span class="stat-label">Licensed Therapists</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="avgExperienceStat">8+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="avgRatingStat">4.9</span>
+                    <span class="stat-label">Client Rating</span>
+                </div>
             </div>
         </div>
-    </nav>
-    
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <div class="page-header-content">
-                <h1>Find Your <span class="gradient-text">Therapist</span></h1>
-                <p>Licensed professionals who truly care about your well-being</p>
-                <div class="header-stats">
-                    <div class="stat"><span class="stat-number">24+</span><span class="stat-label">Licensed Therapists</span></div>
-                    <div class="stat"><span class="stat-number">8+</span><span class="stat-label">Years Avg Experience</span></div>
-                    <div class="stat"><span class="stat-number">4.9</span><span class="stat-label">Client Rating</span></div>
+    </div>
+    <div class="hero-wave">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- ==================== MATCHING QUIZ CTA ==================== -->
+<section class="matching-cta" data-aos="fade-up">
+    <div class="container">
+        <div class="matching-card">
+            <div class="matching-content">
+                <div class="matching-icon">
+                    <i class="fas fa-magic"></i>
                 </div>
+                <h3>Not sure where to start?</h3>
+                <p>Take our smart matching quiz and get personalized therapist recommendations in under 2 minutes.</p>
+                <div class="matching-features">
+                    <span><i class="fas fa-check-circle"></i> Free & anonymous</span>
+                    <span><i class="fas fa-brain"></i> AI-powered matching</span>
+                    <span><i class="fas fa-clock"></i> Takes 2 minutes</span>
+                    <span><i class="fas fa-heart"></i> 94% match accuracy</span>
+                </div>
+                <a href="therapist-matching.html" class="btn-matching">
+                    <span>Match Me With a Therapist</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="matching-illustration">
+                <i class="fas fa-puzzle-piece"></i>
             </div>
         </div>
-        <div class="header-wave"></div>
-    </section>
-    
-    <!-- Matching Quiz CTA - ENHANCED -->
-    <section class="matching-cta">
-        <div class="container">
-            <div class="matching-card">
-                <div class="matching-content">
-                    <div class="matching-icon">
-                        <i class="fas fa-magic"></i>
-                    </div>
-                    <h3>Not sure where to start? <span class="highlight">We've got you.</span></h3>
-                    <p>Answer a few quick questions about what you're going through, and our smart algorithm will recommend the perfect therapist for you.</p>
-                    <div class="matching-features">
-                        <span><i class="fas fa-check-circle"></i> Free & anonymous</span>
-                        <span><i class="fas fa-robot"></i> AI‑powered matching</span>
-                        <span><i class="fas fa-clock"></i> Takes 2 minutes</span>
-                        <span><i class="fas fa-heart"></i> 94% match accuracy</span>
-                    </div>
-                    <a href="therapist-matching.html" class="btn btn-primary btn-large">
-                        <i class="fas fa-heart"></i>
-                        Match Me With a Therapist
-                    </a>
-                </div>
-                <div class="matching-illustration">
-                    <i class="fas fa-puzzle-piece"></i>
-                </div>
-            </div>
+    </div>
+</section>
+
+<!-- ==================== FILTERS SECTION ==================== -->
+<section class="filters-section">
+    <div class="container">
+        <div class="filters-header">
+            <h3>Browse Therapists</h3>
+            <p>Find the right professional for your journey</p>
         </div>
-    </section>
-    
-    <!-- Search & Filter Section -->
-    <section class="therapist-search">
-        <div class="container">
-            <div class="search-container">
-                <div class="search-bar">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="therapistSearch" placeholder="Search by name, specialty, or location...">
-                </div>
-                <div class="filters">
-                    <select id="specialtyFilter" class="filter-select">
+        
+        <div class="search-filters">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="therapistSearch" placeholder="Search by name, specialty, or keyword...">
+                <button class="search-clear" id="searchClear" style="display: none;">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="filter-group">
+                <div class="filter-item">
+                    <i class="fas fa-stethoscope"></i>
+                    <select id="specialtyFilter">
                         <option value="all">All Specialties</option>
                         <option value="anxiety">Anxiety & Depression</option>
                         <option value="trauma">Trauma & PTSD</option>
                         <option value="youth">Youth & Adolescent</option>
                         <option value="family">Family Therapy</option>
+                        <option value="couples">Couples Counseling</option>
                         <option value="career">Career Counseling</option>
                     </select>
-                    <select id="locationFilter" class="filter-select">
+                </div>
+                
+                <div class="filter-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <select id="locationFilter">
                         <option value="all">All Locations</option>
                         <option value="nairobi">Nairobi</option>
                         <option value="kisumu">Kisumu</option>
                         <option value="mombasa">Mombasa</option>
                         <option value="online">Online Only</option>
                     </select>
-                    <select id="availabilityFilter" class="filter-select">
+                </div>
+                
+                <div class="filter-item">
+                    <i class="fas fa-user-clock"></i>
+                    <select id="availabilityFilter">
                         <option value="all">All Availability</option>
                         <option value="online">Online Now</option>
                         <option value="today">Available Today</option>
                         <option value="week">This Week</option>
                     </select>
-                    <button class="btn btn-outline" id="resetFilters">
-                        <i class="fas fa-undo-alt"></i> Reset
-                    </button>
                 </div>
+                
+                <button class="btn-reset" id="resetFilters">
+                    <i class="fas fa-undo-alt"></i> Reset
+                </button>
+            </div>
+            
+            <div class="active-filters" id="activeFilters"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== THERAPISTS GRID ==================== -->
+<section class="therapists-section">
+    <div class="container">
+        <div class="results-header">
+            <span class="results-count" id="resultsCount">Loading therapists...</span>
+            <div class="view-toggle">
+                <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
+                <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
             </div>
         </div>
-    </section>
-    
-    <!-- Therapists Grid -->
-    <section class="therapists-list">
-        <div class="container">
-            <div class="therapists-grid" id="therapistsList"></div>
-            <div class="no-results" id="noResults" style="display: none;">
-                <i class="fas fa-frown"></i>
+        
+        <div class="therapists-grid" id="therapistsList">
+            <div class="loading-skeleton">
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+            </div>
+        </div>
+        
+        <div class="no-results" id="noResults" style="display: none;">
+            <div class="no-results-content">
+                <i class="fas fa-search"></i>
                 <h3>No therapists found</h3>
                 <p>Try adjusting your filters or take our matching quiz</p>
-                <a href="therapist-matching.html" class="btn btn-primary">Take Matching Quiz</a>
+                <a href="therapist-matching.html" class="btn-primary">Take Matching Quiz</a>
             </div>
         </div>
-    </section>
+        
+        <div class="load-more" id="loadMore" style="display: none;">
+            <button class="btn-load-more">Load More Therapists</button>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== WHY CHOOSE US ==================== -->
+<section class="why-choose-us" data-aos="fade-up">
+    <div class="container">
+        <div class="section-header">
+            <h2>Why Choose <span class="gradient-text">MindBridge</span></h2>
+            <p>We make mental health care accessible, affordable, and confidential</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <h4>Verified Professionals</h4>
+                <p>All therapists are licensed and vetted by our team</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h4>100% Confidential</h4>
+                <p>Your privacy and security are our top priority</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-icon">
+                    <i class="fas fa-video"></i>
+                </div>
+                <h4>Secure Video Sessions</h4>
+                <p>Attend therapy from anywhere, anytime</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-icon">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+                <h4>Flexible Payments</h4>
+                <p>Pay per session or subscribe for savings</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="assets/images/mind-bridge-logo.JPG" alt="MindBridge Kenya">
+                <p>Bridging the gap to better mental health in Kenya.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="about.html">About Us</a>
+                <a href="therapists.html">Find a Therapist</a>
+                <a href="programs.html">Programs</a>
+                <a href="resources.html">Resources</a>
+            </div>
+            <div class="footer-links">
+                <h4>Support</h4>
+                <a href="contact.html">Contact Us</a>
+                <a href="#">FAQs</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p><i class="fas fa-phone"></i> +254 700 123 456</p>
+                <p><i class="fas fa-envelope"></i> hello@mindbridge.co.ke</p>
+                <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 MindBridge Kenya. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/api.js"></script>
+<script src="js/therapists.js"></script>
+
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+    });
     
-    <footer class="footer">...</footer>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
     
-    <script src="js/therapists-data.js"></script>
-    <script src="js/therapists.js"></script>
+    // Mobile menu toggle
+    document.getElementById('menuToggle')?.addEventListener('click', () => {
+        document.getElementById('navMenu').classList.toggle('active');
+    });
+    
+    // Theme toggle
+    document.getElementById('themeToggle')?.addEventListener('click', () => {
+        document.body.classList.toggle('dark-theme');
+        const icon = document.querySelector('#themeToggle i');
+        if (document.body.classList.contains('dark-theme')) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+    });
+    
+    // User menu dropdown
+    const userAvatarBtn = document.getElementById('userAvatarBtn');
+    const userDropdown = document.getElementById('userDropdown');
+    
+    userAvatarBtn?.addEventListener('click', () => {
+        userDropdown?.classList.toggle('show');
+    });
+    
+    document.addEventListener('click', (e) => {
+        if (!userAvatarBtn?.contains(e.target) && userDropdown?.classList.contains('show')) {
+            userDropdown.classList.remove('show');
+        }
+    });
+</script>
 </body>
 </html>
