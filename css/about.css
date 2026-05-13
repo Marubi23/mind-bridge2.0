@@ -739,7 +739,7 @@ body.dark-theme .header-wave path {
 
 /* ===== FOOTER ===== */
 .footer {
-    background: var(--dark);
+    background: var(--primary-dark);
     color: white;
     padding: 4rem 0 2rem;
 }

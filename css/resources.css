@@ -521,8 +521,8 @@ body.dark-theme .header-wave path {
 }
 
 .article-image img {
-    width: 100%;
-    height: 100%;
+    width: 350px;
+    height: 550px;
     object-fit: cover;
 }
 
@@ -695,7 +695,7 @@ body.dark-theme .header-wave path {
 
 /* ===== FOOTER ===== */
 .footer {
-    background: var(--dark);
+    background: var(--primary-dark);
     color: white;
     padding: 4rem 0 2rem;
 }

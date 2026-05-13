@@ -618,7 +618,7 @@ body.dark-theme .program-detail-section.alternate {
 
 /* ===== FOOTER ===== */
 .footer {
-    background: var(--dark);
+    background: var(--primary-dark);
     color: white;
     padding: 4rem 0 2rem;
 }
