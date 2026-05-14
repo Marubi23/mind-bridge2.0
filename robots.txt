@@ -1,0 +1,12 @@
+# Robots.txt for mind-bridge.co.ke
+# Purpose: Professional SEO & Security
+
+User-agent: *
+Allow: /
+Disallow: /assets/css/
+Disallow: /assets/js/
+Disallow: /login.html
+Disallow: /signup.html
+
+# Let Google know exactly where the map is
+Sitemap: https://mind-bridge.co.ke/sitemap.xml

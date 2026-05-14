@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home Page -->
+  <url>
+    <loc>https://mind-bridge.co.ke/</loc>
+    <lastmod>2026-05-14</lastmod>
+    <priority>1.00</priority>
+  </url>
+
+  <!-- About Us -->
+  <url>
+    <loc>https://mind-bridge.co.ke/about.html</loc>
+    <lastmod>2026-05-14</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Programs -->
+  <url>
+    <loc>https://mind-bridge.co.ke/programs.html</loc>
+    <lastmod>2026-05-14</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Therapists -->
+  <url>
+    <loc>https://mind-bridge.co.ke/therapists.html</loc>
+    <lastmod>2026-05-14</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Resources -->
+  <url>
+    <loc>https://mind-bridge.co.ke/resources.html</loc>
+    <lastmod>2026-05-14</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://mind-bridge.co.ke/contact.html</loc>
+    <lastmod>2026-05-14</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- School Partnership -->
+  <url>
+    <loc>https://mind-bridge.co.ke/school-partnership.html</loc>
+    <lastmod>2026-05-14</lastmod>
+    <priority>0.90</priority>
+  </url>
+</urlset>
