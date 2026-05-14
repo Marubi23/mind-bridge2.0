@@ -56,7 +56,64 @@
     --container-width: 1280px;
     --container-padding: 2rem;
 }
+/* CRITICAL DARK MODE FIXES - Ensure text is visible */
+body.dark-theme,
+body[data-theme="dark"] {
+    --light: #1a202c;
+    --white: #2d3748;
+    --dark: #f7fafc;
+    --dark-soft: #e2e8f0;
+    --gray: #a0aec0;
+    --gray-light: #4a5568;
+    --nav-text: #f7fafc;
+    --nav-bg: rgba(26, 32, 44, 0.95);
+}
 
+/* Ensure all text elements inherit correct colors */
+body.dark-theme p,
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme li,
+body.dark-theme span:not(.gradient-text),
+body.dark-theme .program-card p,
+body.dark-theme .resource-card p {
+    color: var(--dark);
+}
+
+/* Fix card backgrounds in dark mode */
+body.dark-theme .program-card,
+body.dark-theme .resource-card,
+body.dark-theme .impact-story,
+body.dark-theme .newsletter-card {
+    background: var(--white);
+    border-color: var(--gray-light);
+}
+
+/* Fix modal in dark mode */
+body.dark-theme .modal-content {
+    background: var(--white);
+}
+
+body.dark-theme .modal-content h3,
+body.dark-theme .modal-content p {
+    color: var(--dark);
+}
+
+/* Fix input fields in dark mode */
+body.dark-theme input,
+body.dark-theme textarea,
+body.dark-theme select {
+    background: var(--light);
+    color: var(--dark);
+    border-color: var(--gray-light);
+}
+
+/* Fix footer in dark mode stays consistent */
+body.dark-theme .footer {
+    background: #0f172a;
+}
 /* Dark Theme */
 body.dark-theme {
     --primary: #2c5282;
@@ -580,14 +637,14 @@ body.dark-theme .header-wave path {
 }
 
 .team-image {
-    height: 300px;
+    height: 270px;
     overflow: hidden;
 }
 
 .team-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: 300px;
+    object-fit: contain;
     transition: transform var(--transition-slow);
 }
 
