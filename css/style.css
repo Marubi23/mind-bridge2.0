@@ -444,7 +444,7 @@ body.dark-theme .hero-overlay {
 
 .sos-button:hover {
     transform: scale(1.05);
-    background: var(--sos-dark);
+    background: var(--accent-dark);
 }
 
 @keyframes pulse-red {
