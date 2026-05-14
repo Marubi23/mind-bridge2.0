@@ -1,7 +1,3 @@
-/**
- * Therapists Directory - Professional Version
- * Connected to PostgreSQL Backend
- */
 
 const API_URL = 'http://localhost:3000/api';
 let allTherapists = [];

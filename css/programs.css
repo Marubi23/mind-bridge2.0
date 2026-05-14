@@ -94,7 +94,7 @@ body {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    background: var(--sos);
+    background: var(--accent);
     color: white;
     border: none;
     border-radius: 60px;
@@ -112,7 +112,7 @@ body {
 
 .sos-button:hover {
     transform: scale(1.05);
-    background: var(--sos-dark);
+    background: var(--accent-dark);
 }
 
 @keyframes pulse-red {
