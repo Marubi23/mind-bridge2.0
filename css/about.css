@@ -24,7 +24,7 @@
     --gray: #64748b;
     --gray-light: #e2e8f0;
     --light: #f8fafc;
-    --white: #ffffff;
+    --white: #ffffff9c;
     --nav-text: #1a1a2e;
     --nav-bg: rgba(255, 255, 255, 0.95);
     
@@ -48,11 +48,12 @@
 
 /* ===== DARK MODE - Single source of truth ===== */
 /* Dark Theme - Fixed visibility */
+/* Dark Theme - Fixed visibility */
 body.dark-theme {
-    --primary: #4a9fd8;
-    --primary-dark: #2c5282;
-    --primary-light: #63b3ed;
-    --primary-bg: rgba(74, 159, 216, 0.15);
+    --primary: #4a9fd800;
+    --primary-dark: #2c538221;
+    --primary-light: #63b3ed73;
+    --primary-bg: rgba(74, 159, 216, 0);
     
     --secondary: #e8a838;
     --secondary-dark: #d4932a;
@@ -67,7 +68,7 @@ body.dark-theme {
     --sos-bg: rgba(252, 129, 129, 0.15);
     
     /* Neutrals - Dark Mode (light text on dark bg) */
-    --dark: #f7fafc;
+    --dark: #f7fafc;        /* ← CORRECT - LIGHT text */
     --dark-soft: #e2e8f0;
     --gray: #a0aec0;
     --gray-light: #4a5568;
@@ -183,7 +184,7 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--primary);
+    color: var(--secondary);
 }
 
 .nav-link.active::after {
@@ -229,6 +230,7 @@ body {
 .menu-toggle {
     display: none;
 }
+
 
 /* ===== PAGE HEADER ===== */
 .page-header {
