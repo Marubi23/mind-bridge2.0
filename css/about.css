@@ -232,7 +232,6 @@ body {
     display: none;
 }
 
-
 /* ===== PAGE HEADER ===== */
 .page-header {
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
@@ -246,6 +245,12 @@ body {
     text-align: center;
     position: relative;
     z-index: 2;
+}
+
+.theme-toggle,
+.btn .btn-primary {
+    color: var(--light);
+    background-color: var(--secondary-dark);
 }
 
 .page-header h1 {

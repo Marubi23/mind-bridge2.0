@@ -965,6 +965,11 @@ body.dark-theme .header-wave path {
     color: var(--sos);
     margin-bottom: 1rem;
 }
+.theme-toggle,
+.btn .btn-primary {
+    color: var(--light);
+    background-color: var(--secondary-dark);
+}
 
 .helplines {
     margin: 1.5rem 0;

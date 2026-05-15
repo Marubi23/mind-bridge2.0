@@ -272,7 +272,11 @@ body.dark-theme .navbar.scrolled {
     background-clip: text;
     color: transparent;
 }
-
+.theme-toggle,
+.btn .btn-primary {
+    color: var(--light);
+    background-color: var(--secondary-dark);
+}
 .page-header p {
     opacity: 0.9;
     font-size: 1.125rem;

@@ -225,6 +225,7 @@ body.dark-theme .navbar.scrolled {
     align-items: center;
 }
 
+
 .theme-toggle,
 .menu-toggle {
     background: none;
@@ -286,7 +287,11 @@ body.dark-theme .navbar.scrolled {
     gap: 3rem;
     flex-wrap: wrap;
 }
-
+.theme-toggle,
+.btn .btn-primary {
+    color: var(--light);
+    background-color: var(--secondary-dark);
+}
 .header-stats .stat {
     text-align: center;
 }

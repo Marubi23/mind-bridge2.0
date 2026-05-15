@@ -287,6 +287,11 @@ body.dark-theme .navbar.scrolled {
 .nav-link.active {
     color: var(--secondary);
 }
+.theme-toggle,
+.btn .btn-primary {
+    color: var(--light);
+    background-color: var(--secondary-dark);
+}
 
 .hero-therapists {
     position: relative;
