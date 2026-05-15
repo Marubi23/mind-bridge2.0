@@ -195,7 +195,7 @@
                         <img src="assets/images/IMG_1369.JPG" alt="Founder">
                     </div>
                     <h3>Ali Hassan</h3>
-                    <p class="team-title">Founder partner</p>
+                    <p class="team-title">Founder </p>
                     <p class="team-bio">Dedicated leader with a vision to transform mental health support for Kenyan youth.</p>
                     <div class="team-social">
                         <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -207,7 +207,7 @@
                         <img src="assets/images/IMG_1368.JPG" alt="Clinical Director">
                     </div>
                     <h3>Peter Moguche</h3>
-                    <p class="team-title">Founder</p>
+                    <p class="team-title">Founde patner</p>
                     <p class="team-bio">Experienced manager with a passion for improving mental health services for young people.</p>
                     <div class="team-social">
                         <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -318,25 +318,14 @@
     <!-- GLOBAL THEME MANAGER - Place this on EVERY page -->
 <script>
 (function() {
-    // ============================================
-    // CROSS-PAGE DARK/LIGHT MODE MANAGER
-    // Works across all pages instantly
-    // ============================================
-    
-    // Theme key for localStorage
     const THEME_KEY = 'mindbridge_theme';
     
-    // Get saved theme or default to 'light'
     function getSavedTheme() {
         const saved = localStorage.getItem(THEME_KEY);
-        if (saved === 'dark' || saved === 'light') {
-            return saved;
-        }
-        // Check system preference as fallback
+        if (saved === 'dark' || saved === 'light') return saved;
         return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
     
-    // Apply theme to document body
     function applyTheme(theme) {
         if (theme === 'dark') {
             document.body.classList.add('dark-theme');
@@ -345,56 +334,34 @@
             document.body.classList.remove('dark-theme');
             document.body.removeAttribute('data-theme');
         }
-        // Update toggle button icon if it exists
-        updateToggleIcon(theme);
-        // Dispatch event for any other scripts listening
-        window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme: theme } }));
+        const toggle = document.getElementById('themeToggle');
+        if (toggle) toggle.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
     }
     
-    // Update the toggle button icon
-    function updateToggleIcon(theme) {
-        const themeToggle = document.getElementById('themeToggle');
-        if (themeToggle) {
-            themeToggle.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-        }
-    }
-    
-    // Toggle theme function - THIS IS WHAT THE BUTTON CALLS
-    window.toggleTheme = function() {
+    window.toggleThemeGlobal = function() {
         const isDark = document.body.classList.contains('dark-theme');
         const newTheme = isDark ? 'light' : 'dark';
         applyTheme(newTheme);
         localStorage.setItem(THEME_KEY, newTheme);
-        console.log('Theme toggled to:', newTheme);
     };
     
-    // Initialize theme on page load
-    const savedTheme = getSavedTheme();
-    applyTheme(savedTheme);
+    applyTheme(getSavedTheme());
     
-    // Listen for theme toggle button clicks
     document.addEventListener('DOMContentLoaded', function() {
         const themeToggle = document.getElementById('themeToggle');
         if (themeToggle) {
-            // Remove any existing listeners to avoid duplicates
             const newToggle = themeToggle.cloneNode(true);
             themeToggle.parentNode.replaceChild(newToggle, themeToggle);
-            
             newToggle.addEventListener('click', function(e) {
                 e.preventDefault();
-                window.toggleTheme();
+                window.toggleThemeGlobal();
             });
         }
     });
     
-    // Optional: Listen for storage events (if theme changes in another tab)
     window.addEventListener('storage', function(e) {
-        if (e.key === THEME_KEY && e.newValue) {
-            applyTheme(e.newValue);
-        }
+        if (e.key === THEME_KEY && e.newValue) applyTheme(e.newValue);
     });
-    
-    console.log('Global Theme Manager initialized');
 })();
 </script>
 </body>

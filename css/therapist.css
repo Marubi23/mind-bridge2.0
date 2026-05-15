@@ -25,14 +25,28 @@
 }
 
 /* Dark Theme Variables */
+/* Dark Theme */
 body.dark-theme {
-    --primary: #2c5282;
-    --primary-dark: #1e3a5f;
-    --dark: #0f172a;
-    --light: #1e293b;
-    --gray: #94a3b8;
-    --gray-light: #334155;
-    --white: #0f172a;
+    --primary: #4a9fd8;
+    --primary-dark: #2c5282;
+    --primary-light: #63b3ed;
+    --primary-bg: rgba(74, 159, 216, 0.15);
+    --secondary: #e8a838;
+    --secondary-dark: #d4932a;
+    --secondary-light: #f0b84d;
+    --secondary-bg: rgba(232, 168, 56, 0.15);
+    --accent: #48bb78;
+    --accent-dark: #38a169;
+    --sos: #fc8181;
+    --sos-dark: #f56565;
+    
+    /* Light text on dark background */
+    --dark: #f7fafc;
+    --dark-soft: #e2e8f0;
+    --gray: #a0aec0;
+    --gray-light: #4a5568;
+    --light: #1a202c;
+    --white: #2d3748;
 }
 
 /* ============================================

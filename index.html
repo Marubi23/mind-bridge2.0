@@ -417,25 +417,50 @@
                 navbar.classList.remove('scrolled');
             }
         });
+// ===== GLOBAL THEME MANAGER (Same as about page) =====
+const THEME_KEY = 'mindbridge_theme';
 
-        // Theme Manager
-        let isDark = localStorage.getItem('darkMode') === 'true';
-        if (isDark) {
-            document.body.classList.add('dark-theme');
-            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        }
+function getSavedTheme() {
+    const saved = localStorage.getItem(THEME_KEY);
+    if (saved === 'dark' || saved === 'light') {
+        return saved;
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
 
-        themeToggle.addEventListener('click', () => {
-            isDark = !isDark;
-            if (isDark) {
-                document.body.classList.add('dark-theme');
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-            } else {
-                document.body.classList.remove('dark-theme');
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-            }
-            localStorage.setItem('darkMode', isDark);
-        });
+function applyTheme(theme) {
+    if (theme === 'dark') {
+        document.body.classList.add('dark-theme');
+        document.body.setAttribute('data-theme', 'dark');
+        if (themeToggle) themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    } else {
+        document.body.classList.remove('dark-theme');
+        document.body.removeAttribute('data-theme');
+        if (themeToggle) themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    }
+}
+
+function toggleTheme() {
+    const isDark = document.body.classList.contains('dark-theme');
+    const newTheme = isDark ? 'light' : 'dark';
+    applyTheme(newTheme);
+    localStorage.setItem(THEME_KEY, newTheme);
+}
+
+// Initialize theme
+const savedTheme = getSavedTheme();
+applyTheme(savedTheme);
+
+// Add click listener to theme toggle
+if (themeToggle) {
+    // Remove any existing listeners to avoid duplicates
+    const newToggle = themeToggle.cloneNode(true);
+    themeToggle.parentNode.replaceChild(newToggle, themeToggle);
+    newToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleTheme();
+    });
+}
 
         // Mobile Menu
         menuToggle.addEventListener('click', () => {
@@ -536,9 +561,6 @@
             }
         }
 
-        // Initialize
-        animateNumbers();
-        console.log('MindBridge Kenya initialized');
     </script>
 </body>
 </html>
