@@ -24,13 +24,12 @@
     --sos-dark: #b91c1c;
     --sos-bg: rgba(220, 38, 38, 0.1);
     
-    /* Neutrals */
-    --dark: #1a1a2e;
+     --dark: #1a1a2e;
     --dark-soft: #24233b;
     --gray: #64748b;
     --gray-light: #e2e8f0;
-    --light: #f8fafc;
-    --white: #ffffff;
+    --light: #f8fafc44;
+    --white: #ffffffd0;
     
     /* Shadows */
     --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
